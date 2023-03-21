@@ -1,4 +1,4 @@
 package projectfour;
 
-public class Cake extends MenuItem{
+public class Cake extends Donut{
 }
