@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/Cake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutHole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/MenuItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/Yeast.java" afterDir="false" />
+    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="setting up files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +85,26 @@
       <option name="project" value="LOCAL" />
       <updated>1679417476132</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="setting up files">
+      <created>1679435534498</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679435534498</updated>
+    </task>
+    <task id="LOCAL-00003" summary="setting up files">
+      <created>1679435569232</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679435569232</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="setting up files" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting up files" />
   </component>
 </project>
