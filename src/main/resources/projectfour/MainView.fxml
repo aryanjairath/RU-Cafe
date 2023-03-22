@@ -23,7 +23,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" prefHeight="179.0" prefWidth="169.0" text="Order Donuts" wrapText="true">
+            <Button alignment="CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" onAction="#onOrderDonut" prefHeight="179.0" prefWidth="169.0" text="Order Donuts" wrapText="true">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="175.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="setup">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/clipboard.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/coffeeImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/donutImage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/shoppingbag.png" afterDir="false" />
+    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="MainView added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679503156033</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="MainView added">
+      <created>1679512454850</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679512454850</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -147,6 +153,7 @@
     <MESSAGE value="setting up files" />
     <MESSAGE value="basic implementation" />
     <MESSAGE value="setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup" />
+    <MESSAGE value="MainView added" />
+    <option name="LAST_COMMIT_MESSAGE" value="MainView added" />
   </component>
 </project>
