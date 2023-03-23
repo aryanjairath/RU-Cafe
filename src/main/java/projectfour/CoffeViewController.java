@@ -184,6 +184,7 @@ public class CoffeViewController {
 
         private void reset(){
                 initialize();
+                order = new Order(uniqueOrder);
                 donuts = FXCollections.observableArrayList();
                 result.setItems(donuts);
                 quantitycomboBox.setValue(1);
