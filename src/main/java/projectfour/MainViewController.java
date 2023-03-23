@@ -11,8 +11,8 @@ import java.io.IOException;
 public class MainViewController {
 
     @FXML
-    public void onOrderDonut(){
-        System.out.println("test");
+    protected void onOrderDonut() throws IOException {
+        CoffeeView view = new CoffeeView();
+        view.start(new Stage());
     }
-
 }
