@@ -8,8 +8,8 @@ public class Donut extends MenuItem{
      * @param flavor a String containing the flavor type.
      */
     public Donut(String flavor){
-        this.flavor = flavor;
-
+        super(flavor);
+        this.flavor=flavor;
     }
 
     /**
@@ -19,5 +19,9 @@ public class Donut extends MenuItem{
     @Override
     public double itemPrice() {
         return 0;
+    }
+
+    public String getFlavor(){
+        return this.flavor;
     }
 }

@@ -28,7 +28,7 @@
       <Button fx:id="add" mnemonicParsing="false" onAction="#addDonut" text="Add" translateX="253.0" translateY="300.0" />
       <Button fx:id="remove" mnemonicParsing="false" onAction="#onRemove" text="Remove" translateX="245.0" translateY="350.0" />
       <ListView fx:id="result" prefHeight="200.0" prefWidth="200.0" translateX="340.0" translateY="200.0" />
-      <Button mnemonicParsing="false" text="Add to Order" translateX="440.0" translateY="420.0" />
+      <Button mnemonicParsing="false" onAction="#addOrder" text="Add to Order" translateX="440.0" translateY="420.0" />
       <Label layoutX="160.0" layoutY="420.0" text="Total">
          <font>
             <Font size="15.0" />

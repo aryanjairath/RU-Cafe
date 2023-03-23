@@ -8,4 +8,9 @@ public abstract class MenuItem {
      */
     public abstract double itemPrice();
 
+    private String item;
+    public MenuItem(String item){
+       this.item = item;
+    }
+
 }

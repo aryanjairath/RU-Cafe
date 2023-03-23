@@ -27,9 +27,12 @@ public class CoffeViewController {
         ObservableList<String> donutHoles =
                 FXCollections.observableArrayList("French", "Original",
                         "Powder");
-        ObservableList<String> donuts =
-                FXCollections.observableArrayList();
-        private double total = 0;
+        ObservableList<String> donuts;
+
+        private double total;
+        private int uniqueOrder = 0;
+
+        private Order order;
 
 
         @FXML
@@ -53,6 +56,8 @@ public class CoffeViewController {
                 comboBox = new ComboBox();
                 quantitycomboBox = new ComboBox();
                 flavors = new ListView();
+                total = 0;
+                donuts = FXCollections.observableArrayList();
                 initialize();
         }
 
@@ -65,6 +70,7 @@ public class CoffeViewController {
                 quantitycomboBox.setItems(quantityList);
 
                 flavors.setItems(yeastFlavors);
+
         }
 
         @FXML
@@ -140,6 +146,50 @@ public class CoffeViewController {
                 df.setMaximumFractionDigits(2);
                 df.setMinimumFractionDigits(2);
                 total = Double.parseDouble(df.format(total));
+        }
+
+        private MenuItem findItem(String value){
+                if(value.contains("Strawberry") || value.contains("Vanilla")
+                        || value.contains("Blueberry") || value.contains("Apple")
+                        || value.contains("Grape") || value.contains("Passionfruit")){
+                        Yeast yeast = new Yeast(value);
+                        return yeast;
+                }
+                if(value.contains("French") || value.contains("Original")
+                        || value.contains("Powder")){
+                        DonutHole hole = new DonutHole(value);
+                        return hole;
+                }
+                if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
+                        || value.contains("Cheese Cake")){
+                        Cake cake = new Cake(value);
+                        return cake;
+                }
+                return null;
+        }
+        @FXML
+        protected void addOrder(){
+                order = new Order(uniqueOrder);
+                uniqueOrder++;
+                if(donuts.size() == 0)
+                        return;
+                for(int i = 0; i < donuts.size(); i++) {
+                        String type = donuts.get(i);
+                        order.addItem(type);
+                }
+                order.printOrder();
+                reset();
+
+        }
+
+        private void reset(){
+                initialize();
+                donuts = FXCollections.observableArrayList();
+                result.setItems(donuts);
+                quantitycomboBox.setValue(1);
+                total = 0;
+                runningTotal.setText("");
+
         }
         private boolean checkAdd(){
 

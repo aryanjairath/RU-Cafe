@@ -11,6 +11,7 @@ public class Coffee extends MenuItem{
      * @param cupsize a String representing the size of the cup.
      */
     public Coffee(String cupsize){
+        super(cupsize);
         this.cupsize = cupsize;
         addIns = new ArrayList<>();
     }

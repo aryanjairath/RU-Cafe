@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="tried different views">
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="added donut functionality (small tweaks needed)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,16 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "app.teamhub.trackedBranches": "1g3us7n/master",
-    "last_directory_selection": "C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour",
-    "last_opened_file_path": "C:/Users/Owner/IdeaProjects/CS_213_Project_4"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;1g3us7n/master&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4\src\main\resources\projectfour" />
@@ -145,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679512454850</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added donut functionality (small tweaks needed)">
+      <created>1679596797814</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679596797814</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +163,7 @@
     <MESSAGE value="basic implementation" />
     <MESSAGE value="setup" />
     <MESSAGE value="MainView added" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainView added" />
+    <MESSAGE value="added donut functionality (small tweaks needed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added donut functionality (small tweaks needed)" />
   </component>
 </project>
