@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="MainView added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Cake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Cake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/MenuItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,13 +35,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2NKefHsZ6dp0XA2bj3QpjZwOLEG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -60,9 +59,35 @@
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainView">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="CoffeeView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projectfour.CoffeeView" />
+      <module name="CS_213_Project_4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="projectfour.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.HelloApplication" />
+      <module name="CS_213_Project_4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="projectfour.CoffeeView" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projectfour.Main" />
       <module name="CS_213_Project_4" />
       <extension name="coverage">
         <pattern>
@@ -79,7 +104,7 @@
       <module name="CS_213_Project_4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="projectfour.*" />
+          <option name="PATTERN" value="projectfour.CoffeeView" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,8 +114,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainView" />
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CoffeeView" />
+        <item itemvalue="Application.projectfour.MainView" />
+        <item itemvalue="Application.projectfour.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -155,5 +182,16 @@
     <MESSAGE value="setup" />
     <MESSAGE value="MainView added" />
     <option name="LAST_COMMIT_MESSAGE" value="MainView added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/projectfour/Main.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

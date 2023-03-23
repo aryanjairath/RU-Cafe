@@ -22,7 +22,7 @@ public class CoffeeView extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                MainView.class.getResource("CoffeeView.fxml"));
+                CoffeeView.class.getResource("CoffeeView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 550,  600);
         stage.setTitle("Coffee View");
         stage.setScene(scene);

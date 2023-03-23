@@ -10,4 +10,9 @@ import java.io.IOException;
 
 public class MainViewController {
 
+    @FXML
+    public void onOrderDonut(){
+        System.out.println("test");
+    }
+
 }

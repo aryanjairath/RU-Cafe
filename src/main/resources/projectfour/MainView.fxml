@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="585.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.MainView">
+<AnchorPane prefHeight="585.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.MainViewController">
    <children>
       <Label layoutX="210.0" layoutY="36.0" prefHeight="55.0" prefWidth="236.0" text="RU Cafe" textAlignment="CENTER">
          <font>
             <Font size="38.0" />
          </font>
       </Label>
-      <GridPane layoutX="64.0" layoutY="126.0" prefHeight="354.0" prefWidth="473.0">
+      <GridPane fx:id="onOrderDonut" layoutX="64.0" layoutY="126.0" prefHeight="354.0" prefWidth="473.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
