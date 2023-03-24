@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
 
-public class CoffeViewController {
+public class CoffeeViewController {
         ObservableList<String> donutList =
                 FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Hole Donut");
         ObservableList<Integer> quantityList =
@@ -52,7 +52,7 @@ public class CoffeViewController {
 
         @FXML
         private TextField runningTotal;
-        public CoffeViewController(){
+        public CoffeeViewController(){
                 comboBox = new ComboBox();
                 quantitycomboBox = new ComboBox();
                 flavors = new ListView();
