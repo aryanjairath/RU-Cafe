@@ -6,10 +6,12 @@ public class Order {
 
     private int orderNumber;
     private ArrayList<String> menuItems;
+    private double price;
 
     public Order(int orderNumber){
         this.orderNumber = orderNumber;
         menuItems = new ArrayList<String>();
+        price = 0;
     }
 
     public void addItem(String item){
@@ -20,11 +22,17 @@ public class Order {
         menuItems.remove(item);
     }
 
-    public void printOrder(){
-        for(int i = 0; i < menuItems.size(); i++){
-            System.out.println(menuItems.get(i));
-        }
+    public ArrayList<String> getMenuItems(){
+        return menuItems;
     }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+    public double getPrice(){
+        return this.price;
+    }
+
 
     public int getOrderNumber(){
         return this.orderNumber;

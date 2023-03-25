@@ -7,7 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class CoffeViewController {
@@ -48,7 +52,7 @@ public class CoffeViewController {
         private ListView result;
 
         @FXML
-        private Button add;
+        private ImageView donutImage;
 
         @FXML
         private TextField runningTotal;
@@ -58,6 +62,8 @@ public class CoffeViewController {
                 flavors = new ListView();
                 total = 0;
                 donuts = FXCollections.observableArrayList();
+                order = new Order(uniqueOrder);
+
                 initialize();
         }
 
@@ -74,14 +80,33 @@ public class CoffeViewController {
         }
 
         @FXML
-        protected void selectedValue(){
+        protected void selectedValue() throws IOException {
                 if(comboBox.getValue().equals("Yeast Donut")){
                         flavors.setItems(yeastFlavors);
+                        File f = new File("yeast.jpg");
+                        String absolute = f.getCanonicalPath();
+                        absolute = absolute.substring(0, absolute.length()-10);
+                        absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
+                        donutImage.setImage(new Image(absolute));
                 }
-                if(comboBox.getValue().equals("Cake Donut"))
+                if(comboBox.getValue().equals("Cake Donut")) {
                         flavors.setItems(cakeFlavors);
-                if(comboBox.getValue().equals("Hole Donut"))
+                        File f = new File("cake.jpg");
+                        String absolute = f.getCanonicalPath();
+                        absolute = absolute.substring(0, absolute.length()-9);
+                        absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
+                        donutImage.setImage(new Image(absolute));
+                }
+
+                if(comboBox.getValue().equals("Hole Donut")) {
                         flavors.setItems(donutHoles);
+                        File f = new File("holes.jpg");
+                        String absolute = f.getCanonicalPath();
+                        absolute = absolute.substring(0, absolute.length()-10);
+                        absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
+                        donutImage.setImage(new Image(absolute));
+                }
+
         }
 
         @FXML
@@ -169,15 +194,14 @@ public class CoffeViewController {
         }
         @FXML
         protected void addOrder(){
-                order = new Order(uniqueOrder);
-                uniqueOrder++;
                 if(donuts.size() == 0)
                         return;
                 for(int i = 0; i < donuts.size(); i++) {
                         String type = donuts.get(i);
                         order.addItem(type);
                 }
-                order.printOrder();
+                order.setPrice(order.getPrice()+total);
+                AllOrders.addOrder(order,uniqueOrder);
                 reset();
 
         }
@@ -188,12 +212,7 @@ public class CoffeViewController {
                 donuts = FXCollections.observableArrayList();
                 result.setItems(donuts);
                 quantitycomboBox.setValue(1);
-                total = 0;
                 runningTotal.setText("");
 
-        }
-        private boolean checkAdd(){
-
-                return true;
         }
 }
