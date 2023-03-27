@@ -12,9 +12,16 @@ public class MainViewController {
 
     @FXML
     protected void onOrderDonut() throws IOException {
+        DonutView view = new DonutView();
+        view.start(new Stage());
+    }
+
+    @FXML
+    protected void onOrderCoffee() throws IOException {
         CoffeeView view = new CoffeeView();
         view.start(new Stage());
     }
+
 
     @FXML
     protected void onYourOrder() throws IOException {
