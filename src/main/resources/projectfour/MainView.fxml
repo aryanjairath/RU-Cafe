@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="585.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.MainViewController">
+<AnchorPane prefHeight="585.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.MainViewController">
    <children>
       <Label layoutX="210.0" layoutY="36.0" prefHeight="55.0" prefWidth="236.0" text="RU Cafe" textAlignment="CENTER">
          <font>
@@ -45,7 +45,7 @@
                <GridPane.margin>
                   <Insets bottom="42.0" />
                </GridPane.margin></Button>
-            <Button alignment="CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" text="Your Order" GridPane.rowIndex="1">
+            <Button alignment="CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" onAction="#onYourOrder" text="Your Order" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -15,4 +15,12 @@ public class MainViewController {
         CoffeeView view = new CoffeeView();
         view.start(new Stage());
     }
+
+    @FXML
+    protected void onYourOrder() throws IOException {
+        OrderingBasketView view = new OrderingBasketView();
+        view.start(new Stage());
+    }
+
+
 }

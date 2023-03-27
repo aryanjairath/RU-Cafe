@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="">
+    <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="added ordering basket and some views (needs logic fixes)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +19,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Tag Library Descriptor" />
         <option value="Class" />
       </list>
     </option>
@@ -31,34 +29,38 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2NKefHsZ6dp0XA2bj3QpjZwOLEG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "app.teamhub.trackedBranches": "1g3us7n/master",
-    "last_directory_selection": "C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour",
-    "last_opened_file_path": "/Users/anischihoub/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;1g3us7n/master&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/projectfour" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4\src\main\resources\projectfour" />
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4\src\main\java\projectfour" />
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.projectfour.MainView">
-    <configuration name="projectfour.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.MainView">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.HelloApplication" />
       <module name="CS_213_Project_4" />
       <extension name="coverage">
@@ -71,7 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="projectfour.MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.MainView" />
       <module name="CS_213_Project_4" />
       <extension name="coverage">
@@ -86,8 +88,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.projectfour.MainView" />
-        <item itemvalue="Application.projectfour.HelloApplication" />
+        <item itemvalue="Application.MainView" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -156,12 +158,12 @@
       <option name="project" value="LOCAL" />
       <updated>1679598877448</updated>
     </task>
-    <task id="LOCAL-00009" summary="added donut view, will update later.">
-      <created>1679604613019</created>
+    <task id="LOCAL-00009" summary="added ordering basket and some views (needs logic fixes)">
+      <created>1679769485914</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1679604613019</updated>
+      <updated>1679769485914</updated>
     </task>
     <option name="localTasksCounter" value="10" />
     <servers />
@@ -173,7 +175,7 @@
     <MESSAGE value="setup" />
     <MESSAGE value="MainView added" />
     <MESSAGE value="added donut functionality (small tweaks needed)" />
-    <MESSAGE value="added donut view, will update later." />
-    <option name="LAST_COMMIT_MESSAGE" value="added donut view, will update later." />
+    <MESSAGE value="added ordering basket and some views (needs logic fixes)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ordering basket and some views (needs logic fixes)" />
   </component>
 </project>

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -34,5 +35,10 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <ImageView fx:id="donutImage" fitHeight="119.0" fitWidth="124.0" layoutX="370.0" layoutY="66.0" pickOnBounds="true">
+         <image>
+            <Image url="@yeast.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
