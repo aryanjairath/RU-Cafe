@@ -106,7 +106,6 @@ public class CoffeViewController {
                         absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
                         donutImage.setImage(new Image(absolute));
                 }
-
         }
 
         @FXML

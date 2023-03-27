@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AllOrders {
     public static ArrayList<Order> allOrder = new ArrayList<>();
-
+    public static int uniqueNumber = 0;
     public static void addOrder(Order order, int index){
         if(allOrder.size() == index) {
             allOrder.add(order);
@@ -25,6 +25,12 @@ public class AllOrders {
     }
     public static ArrayList<Order> allOrderR(){
         return allOrder;
+    }
+    public static int getUniqueNumber(){
+        return uniqueNumber;
+    }
+    public static void incrementUnique(){
+        uniqueNumber++;
     }
 
     public void removeOrder(Order order){

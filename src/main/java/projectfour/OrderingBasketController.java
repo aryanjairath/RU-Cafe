@@ -23,6 +23,10 @@ public class OrderingBasketController {
 
     @FXML
     private ListView items;
+    private static double TAXRATE = .0625;
+    private static int SIZEINDEX = 1;
+    private static int EMPTY = 1;
+
 
     public OrderingBasketController(){
     }
@@ -31,16 +35,17 @@ public class OrderingBasketController {
     @FXML
     protected void revealPricing(){
         ArrayList<Order> list = AllOrders.allOrderR();
-        System.out.println(list.get(0).getPrice());
-        subtotal.setText(list.get(0).getPrice()+"");
-        double taxAmt = list.get(list.size()-1).getPrice()*.0625;
+        if(list.size() == EMPTY)
+            return;
+        subtotal.setText(list.get(list.size() - SIZEINDEX).getPrice() + "");
+        double taxAmt = list.get(list.size() - SIZEINDEX).getPrice() * TAXRATE;
         taxAmt = round(taxAmt);
-        tax.setText(taxAmt+"");
-        double finalAmt = taxAmt + list.get(list.size()-1).getPrice();
+        tax.setText(taxAmt + "");
+        double finalAmt = taxAmt + list.get(list.size() - SIZEINDEX).getPrice();
         finalAmt = round(finalAmt);
-        amountdue.setText(finalAmt+"");
+        amountdue.setText(finalAmt + "");
         ArrayList<Order> orders = AllOrders.allOrderR();
-        ArrayList<String> order = orders.get(orders.size()-1).getMenuItems();
+        ArrayList<String> order = orders.get(orders.size() - SIZEINDEX).getMenuItems();
         ObservableList<String> donuts = FXCollections.observableArrayList();
         for(int i  = 0; i < order.size(); i++)
             donuts.add(order.get(i));
@@ -60,30 +65,38 @@ public class OrderingBasketController {
         if(value == null)
             return;
         ArrayList<Order> list = AllOrders.allOrderR();
-        list.get(list.size()-1).getMenuItems().remove(value);
+        list.get(list.size() - SIZEINDEX).getMenuItems().remove(value);
         int quantity;
         double amt=0;
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            System.out.println(quantity);
             Yeast yeast = new Yeast("Any");
             amt = Double.parseDouble(subtotal.getText()) - yeast.itemPrice() * quantity;
+            System.out.println(yeast.itemPrice() * quantity);
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            System.out.println(quantity);
             DonutHole hole = new DonutHole("Any");
             amt = Double.parseDouble(subtotal.getText()) - hole.itemPrice() * quantity;
+            System.out.println(hole.itemPrice() * quantity);
+
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            System.out.println(quantity);
             Cake cake = new Cake("Any");
             amt = Double.parseDouble(subtotal.getText()) - cake.itemPrice() * quantity;
+            System.out.println(cake.itemPrice() * quantity);
+
         }
         amt = round(amt);
-        list.get(list.size()-1).setPrice(amt);
+        list.get(list.size() - SIZEINDEX).setPrice(amt);
         revealPricing();
     }
 
