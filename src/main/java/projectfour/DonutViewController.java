@@ -177,7 +177,7 @@ public class DonutViewController {
             String type = donuts.get(i);
             order.addItem(type);
         }
-        order.printOrder();
+        //order.printOrder();
         reset();
 
     }
