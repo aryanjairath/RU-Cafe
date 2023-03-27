@@ -41,6 +41,16 @@ public class Coffee extends MenuItem{
         addIns.add(addIn);
     }
 
+
+    /***
+     * Adds a particular add in for this coffee.
+     * @param addIn a string representing an add in.
+     */
+
+    public void addaddIn(ArrayList addIn){
+        addIns.addAll(addIn);
+    }
+
     /**
      * Attempts to remove an addin from the addin list.
      * Returns false if it is not present.
@@ -74,5 +84,23 @@ public class Coffee extends MenuItem{
             balance += 3.09 + addIns.size() * 0.30;
         }
         return balance;
+    }
+
+
+
+    public  String toString(int quantity){
+        String output = getCupSize() + " black coffee. \n";
+        output += "Add Ons below: \n";
+        for (String addOn : this.addIns)
+        {
+            output += addOn + "\t";
+        }
+
+        output += "____________";
+        output += "Total Price: " + itemPrice()*quantity;
+
+
+        return output;
+
     }
 }

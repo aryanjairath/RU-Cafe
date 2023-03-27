@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class CoffeeViewController {
         ObservableList<String> donutList =
@@ -46,6 +47,10 @@ public class CoffeeViewController {
 
         @FXML
         private TextField runningTotal;
+
+        @FXML
+        private TextField orders;
+
 
         @FXML
         private CheckBox sweetCream;
@@ -85,12 +90,64 @@ public class CoffeeViewController {
         }
 
 
+        private ArrayList<String> getAddons(){
+                ArrayList<String> addList = new ArrayList<>();
+                if(sweetCream.isSelected()){
+                        addList.add("Sweet Cream");
+                }
+
+                if(frenchVanilla.isSelected()){
+                        addList.add("French Vanilla");
+
+                }
+
+                if(mochaBox.isSelected()){
+                        addList.add("Mocha");
+                }
+
+                if(irishCream.isSelected()){
+                        addList.add("Irish Cream");
+
+                }
+
+                if(caramelBox.isSelected()){
+                        addList.add("Caramel");
+                }
+
+                return addList;
+        }
+
+        /**
+         * Adds a coffee order, given parameters from the UI.
+         */
+
         @FXML
         protected void addCoffee(){
-
+                String size = (String)comboBox.getSelectionModel().getSelectedItem();
+                Coffee coffeeOrder = new Coffee(size);
+                ArrayList<String> addOns = getAddons();
+                coffeeOrder.addaddIn(addOns);
+                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
+                orders.setText(coffeeOrder.toString(quantity));
+                total += coffeeOrder.itemPrice()*quantity;
 
         }
 
+        /**
+         * Adds a coffee order, given parameters from the UI.
+         */
+
+        @FXML
+        protected void removeCoffee(){
+                String size = (String)comboBox.getSelectionModel().getSelectedItem();
+                Coffee coffeeOrder = new Coffee(size);
+                ArrayList<String> addOns = getAddons();
+                coffeeOrder.addaddIn(addOns);
+                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
+                orders.setText(coffeeOrder.toString(quantity));
+                total += coffeeOrder.itemPrice()*quantity;
+
+        }
 
 
         private void round(){

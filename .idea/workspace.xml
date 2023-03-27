@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +34,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "1g3us7n/master",
-    "last_directory_selection": "C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour",
-    "last_opened_file_path": "C:/Users/Owner/IdeaProjects/CS_213_Project_4"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;1g3us7n/master&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4\src\main\resources\projectfour" />
@@ -139,7 +136,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679417304332</updated>
-      <workItem from="1679896743896" duration="2176000" />
+      <workItem from="1679896743896" duration="3600000" />
+      <workItem from="1679903392348" duration="6690000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1679417476132</created>
@@ -204,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679769485914</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix ui for coffee, start writing methods for coffee ordering">
+      <created>1679899337658</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679899337658</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +223,7 @@
     <MESSAGE value="MainView added" />
     <MESSAGE value="added donut functionality (small tweaks needed)" />
     <MESSAGE value="added ordering basket and some views (needs logic fixes)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ordering basket and some views (needs logic fixes)" />
+    <MESSAGE value="fix ui for coffee, start writing methods for coffee ordering" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix ui for coffee, start writing methods for coffee ordering" />
   </component>
 </project>
