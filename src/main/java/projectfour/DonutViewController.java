@@ -1,5 +1,4 @@
 package projectfour;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,49 +6,39 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
-
 public class DonutViewController {
     ObservableList<String> donutList =
             FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Hole Donut");
     ObservableList<Integer> quantityList =
             FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
     ObservableList<String> yeastFlavors =
             FXCollections.observableArrayList("Strawberry", "Vanilla", "Blueberry",
                     "Apple", "Grape","Passionfruit");
-
     ObservableList<String> cakeFlavors =
             FXCollections.observableArrayList("Birthday Cake", "Chocolate Cake",
                     "Cheese Cake");
-
     ObservableList<String> donutHoles =
             FXCollections.observableArrayList("French", "Original",
                     "Powder");
     ObservableList<String> donuts;
-
     private double total;
     private int uniqueOrder = 0;
-
     private Order order;
-
-
     @FXML
     private ComboBox comboBox;
-
     @FXML
     private ComboBox quantitycomboBox;
-
     @FXML
     private ListView flavors;
-
     @FXML
     private ListView result;
-
     @FXML
-    private Button add;
-
+    private ImageView donutImage;
     @FXML
     private TextField runningTotal;
     public DonutViewController(){
@@ -58,30 +47,45 @@ public class DonutViewController {
         flavors = new ListView();
         total = 0;
         donuts = FXCollections.observableArrayList();
+        order = new Order(uniqueOrder);
+        donutImage = new ImageView();
         initialize();
     }
-
     @FXML
     protected void initialize(){
         comboBox.setValue("Yeast Donut");
         comboBox.setItems(donutList);
-
         quantitycomboBox.setValue(1);
         quantitycomboBox.setItems(quantityList);
-
         flavors.setItems(yeastFlavors);
-
     }
-
     @FXML
-    protected void selectedValue(){
+    protected void selectedValue() throws IOException {
         if(comboBox.getValue().equals("Yeast Donut")){
             flavors.setItems(yeastFlavors);
+            File f = new File("yeast.jpg");
+            String absolute = f.getCanonicalPath();
+            absolute = absolute.substring(0, absolute.length()-10);
+            absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
+            donutImage.setImage(new Image(absolute));
         }
-        if(comboBox.getValue().equals("Cake Donut"))
+        if(comboBox.getValue().equals("Cake Donut")) {
             flavors.setItems(cakeFlavors);
-        if(comboBox.getValue().equals("Hole Donut"))
+            File f = new File("cake.jpg");
+            String absolute = f.getCanonicalPath();
+            absolute = absolute.substring(0, absolute.length()-9);
+            absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
+            donutImage.setImage(new Image(absolute));
+        }
+        if(comboBox.getValue().equals("Hole Donut")) {
             flavors.setItems(donutHoles);
+            File f = new File("holes.jpg");
+            String absolute = f.getCanonicalPath();
+            absolute = absolute.substring(0, absolute.length()-10);
+            absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
+            donutImage.setImage(new Image(absolute));
+        }
+
     }
 
     @FXML
@@ -111,10 +115,11 @@ public class DonutViewController {
         result.setItems(donuts);
         runningTotal.setText(total+"");
     }
-
     @FXML
     protected void onRemove(){
         String value = (String)result.getSelectionModel().getSelectedItem();
+        if(value == null)
+            return;
         donuts.remove(value);
         int quantity;
         if(value.contains("Strawberry") || value.contains("Vanilla")
@@ -138,8 +143,6 @@ public class DonutViewController {
         }
         round();
         runningTotal.setText(total+"");
-
-
     }
     private void round(){
         DecimalFormat df = new DecimalFormat();
@@ -147,7 +150,6 @@ public class DonutViewController {
         df.setMinimumFractionDigits(2);
         total = Double.parseDouble(df.format(total));
     }
-
     private MenuItem findItem(String value){
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
@@ -169,31 +171,22 @@ public class DonutViewController {
     }
     @FXML
     protected void addOrder(){
-        order = new Order(uniqueOrder);
-        uniqueOrder++;
         if(donuts.size() == 0)
             return;
         for(int i = 0; i < donuts.size(); i++) {
             String type = donuts.get(i);
             order.addItem(type);
         }
-        //order.printOrder();
+        order.setPrice(order.getPrice()+total);
+        AllOrders.addOrder(order,uniqueOrder);
         reset();
-
     }
-
     private void reset(){
         initialize();
         order = new Order(uniqueOrder);
         donuts = FXCollections.observableArrayList();
         result.setItems(donuts);
         quantitycomboBox.setValue(1);
-        total = 0;
         runningTotal.setText("");
-
-    }
-    private boolean checkAdd(){
-
-        return true;
     }
 }

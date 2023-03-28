@@ -136,7 +136,6 @@ public class CoffeeViewController {
         /**
          * Adds a coffee order, given parameters from the UI.
          */
-
         @FXML
         protected void removeCoffee(){
                 String size = (String)comboBox.getSelectionModel().getSelectedItem();

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="added files">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,8 +138,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679417304332</updated>
-      <workItem from="1679896743896" duration="3600000" />
-      <workItem from="1679903392348" duration="6690000" />
+      <workItem from="1679896743896" duration="2176000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1679417476132</created>
@@ -202,12 +203,12 @@
       <option name="project" value="LOCAL" />
       <updated>1679769485914</updated>
     </task>
-    <task id="LOCAL-00010" summary="fix ui for coffee, start writing methods for coffee ordering">
-      <created>1679899337658</created>
+    <task id="LOCAL-00010" summary="added files">
+      <created>1679955150971</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1679899337658</updated>
+      <updated>1679955150971</updated>
     </task>
     <option name="localTasksCounter" value="11" />
     <servers />
@@ -223,7 +224,7 @@
     <MESSAGE value="MainView added" />
     <MESSAGE value="added donut functionality (small tweaks needed)" />
     <MESSAGE value="added ordering basket and some views (needs logic fixes)" />
-    <MESSAGE value="fix ui for coffee, start writing methods for coffee ordering" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ui for coffee, start writing methods for coffee ordering" />
+    <MESSAGE value="added files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added files" />
   </component>
 </project>
