@@ -31,7 +31,7 @@
       </Label>
 
       <ComboBox fx:id="quantitycomboBox" layoutX="242.0" layoutY="255.0" prefHeight="25.0" prefWidth="58.0" />
-      <Button fx:id="add" mnemonicParsing="false" text="Add" translateX="253.0" translateY="300.0" />
+      <Button fx:id="add" mnemonicParsing="false" onAction="#addCoffee" text="Add" translateX="253.0" translateY="300.0" />
       <Button fx:id="remove" mnemonicParsing="false" text="Remove" translateX="245.0" translateY="350.0" />
       <ListView fx:id="result" prefHeight="185.0" prefWidth="200.0" translateX="340.0" translateY="200.0" />
       <Button mnemonicParsing="false" text="Add to Order" translateX="440.0" translateY="420.0" />
@@ -41,10 +41,10 @@
          </font>
       </Label>
       <CheckBox fx:id="sweetCream" layoutX="26.0" layoutY="209.0" mnemonicParsing="false" text="Sweet Cream" />
-      <CheckBox fx:id="fVanilla" layoutX="26.0" layoutY="239.0" mnemonicParsing="false" text="French Vanilla" />
-      <CheckBox fx:id="icream" layoutX="26.0" layoutY="269.0" mnemonicParsing="false" text="Irish Cream" />
-      <CheckBox fx:id="caramel" layoutX="26.0" layoutY="299.0" mnemonicParsing="false" text="Caramel" />
-      <CheckBox fx:id="mocha" layoutX="26.0" layoutY="329.0" mnemonicParsing="false" text="Mocha" />
+      <CheckBox fx:id="frenchVanilla" layoutX="26.0" layoutY="239.0" mnemonicParsing="false" text="French Vanilla" />
+      <CheckBox fx:id="irishCream" layoutX="26.0" layoutY="269.0" mnemonicParsing="false" text="Irish Cream" />
+      <CheckBox fx:id="caramelBox" layoutX="26.0" layoutY="299.0" mnemonicParsing="false" text="Caramel" />
+      <CheckBox fx:id="mochaBox" layoutX="26.0" layoutY="329.0" mnemonicParsing="false" text="Mocha" />
 
 
 

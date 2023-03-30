@@ -25,11 +25,11 @@ public class CoffeeViewController {
         ObservableList<String> coffee;
 
         private double total;
-        private int uniqueOrder = 0;
+        private static final int uniqueOrder = 0;
 
         private Order order;
 
-
+        private static final int BEGININDEX = 0;
         @FXML
         private ComboBox comboBox;
 
@@ -70,7 +70,7 @@ public class CoffeeViewController {
         public CoffeeViewController(){
                 comboBox = new ComboBox();
                 quantitycomboBox = new ComboBox();
-                flavors = new ListView();
+                result = new ListView();
                 total = 0;
                 coffee = FXCollections.observableArrayList();
                 order = new Order(uniqueOrder);
@@ -128,8 +128,11 @@ public class CoffeeViewController {
                 ArrayList<String> addOns = getAddons();
                 coffeeOrder.addaddIn(addOns);
                 int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                orders.setText(coffeeOrder.toString(quantity));
+                coffee.add(size + "(" + quantity + ")");
+                result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
+                round();
+                runningTotal.setText(total + "");
 
         }
 
@@ -138,14 +141,37 @@ public class CoffeeViewController {
          */
         @FXML
         protected void removeCoffee(){
-                String size = (String)comboBox.getSelectionModel().getSelectedItem();
-                Coffee coffeeOrder = new Coffee(size);
-                ArrayList<String> addOns = getAddons();
-                coffeeOrder.addaddIn(addOns);
-                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                orders.setText(coffeeOrder.toString(quantity));
-                total += coffeeOrder.itemPrice()*quantity;
+                String value = (String)result.getSelectionModel().getSelectedItem();
+                String sizeOfCoffee = value.substring(BEGININDEX,value.indexOf("("));
+                Coffee tempCoffee = new Coffee(sizeOfCoffee);
+                total -= tempCoffee.itemPrice();
+                round();
+                runningTotal.setText(total +  "");
 
+        }
+
+
+        @FXML
+        protected void addOrder(){
+                if(coffee.size() == BEGININDEX)
+                        return;
+                for(int i = 0; i < coffee.size(); i++) {
+                        String type = coffee.get(i);
+                        order.addItem(type);
+                }
+                order.setPrice(order.getPrice()+total);
+                AllOrders.addOrder(order,uniqueOrder);
+                reset();
+        }
+
+
+        private void reset(){
+                initialize();
+                order = new Order(uniqueOrder);
+                coffee = FXCollections.observableArrayList();
+                result.setItems(coffee);
+                quantitycomboBox.setValue(1);
+                runningTotal.setText("");
         }
 
 
