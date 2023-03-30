@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.CoffeeViewController">
+    <children>
+        <TextField fx:id="runningTotal" translateX="200.0" translateY="420.0" />
+        <ComboBox fx:id="comboBox" layoutX="22.0" layoutY="616.0" prefHeight="28.0" prefWidth="113.0" promptText="Coffee Type" translateY="-200.0" visibleRowCount="5" AnchorPane.bottomAnchor="-144.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets></ComboBox>
+        <Label layoutX="62.0" layoutY="78.0" text="Store Order Menu">
+            <font>
+                <Font size="36.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets left="175.0" top="20.0" />
+            </padding>
+        </Label>
+
+
+        <ComboBox fx:id="quantitycomboBox" layoutX="242.0" layoutY="255.0" prefHeight="25.0" prefWidth="58.0" />
+        <Button fx:id="add" mnemonicParsing="false" onAction="#addCoffee" text="Add" translateX="253.0" translateY="300.0" />
+        <Button fx:id="remove" mnemonicParsing="false" text="Remove" translateX="245.0" translateY="350.0" />
+        <ListView fx:id="result" prefHeight="185.0" prefWidth="200.0" translateX="340.0" translateY="200.0" />
+        <Button mnemonicParsing="false" text="Save to Text File" translateX="440.0" translateY="420.0" />
+        <Label layoutX="160.0" layoutY="420.0" text="Total">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+
+
+        <!--      <ImageView fx:id="donutImage" fitHeight="119.0" fitWidth="124.0" layoutX="370.0" layoutY="66.0" pickOnBounds="true">-->
+        <!--         <image>-->
+        <!--            <Image url="@yeast.jpg" />-->
+        <!--         </image>-->
+        <!--      </ImageView>-->
+    </children>
+</AnchorPane>

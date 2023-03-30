@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="added files">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.CoffeeView">
     <configuration name="CoffeeView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.CoffeeView" />
       <module name="CS_213_Project_4" />
@@ -122,9 +122,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CoffeeView" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.OrderingBasketView" />
-        <item itemvalue="Application.CoffeeView" />
         <item itemvalue="Application.MainView" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -139,6 +139,8 @@
       <option name="presentableId" value="Default" />
       <updated>1679417304332</updated>
       <workItem from="1679896743896" duration="2176000" />
+      <workItem from="1680152434293" duration="1998000" />
+      <workItem from="1680155038514" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1679417476132</created>
