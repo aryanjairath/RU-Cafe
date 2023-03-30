@@ -30,6 +30,9 @@ public class CoffeeViewController {
         private Order order;
 
         private static final int BEGININDEX = 0;
+
+        private static final int OFFSETINDEX = 1;
+
         @FXML
         private ComboBox comboBox;
 
@@ -117,18 +120,33 @@ public class CoffeeViewController {
                 return addList;
         }
 
+
+
+        private boolean checkOrder(){
+                if(((String)comboBox.getSelectionModel().getSelectedItem()).equals("Coffee Size")){
+                        return false;
+                }
+                return true;
+        }
         /**
          * Adds a coffee order, given parameters from the UI.
          */
 
         @FXML
         protected void addCoffee(){
+                if(!checkOrder()){
+                        String errorMessage = "Must select coffee size!";
+                        Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+                        coffeeFailure.setContentText(errorMessage);
+                        coffeeFailure.show();
+                        return;
+                }
                 String size = (String)comboBox.getSelectionModel().getSelectedItem();
                 Coffee coffeeOrder = new Coffee(size);
                 ArrayList<String> addOns = getAddons();
                 coffeeOrder.addaddIn(addOns);
                 int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                coffee.add(size + "(" + quantity + ")");
+                coffee.add(size + "(" + quantity + ")" + "Number of addons:" +  addOns.size()+ ".");
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
@@ -136,18 +154,43 @@ public class CoffeeViewController {
 
         }
 
+
+        private boolean canRemoveCoffee(){
+                if((String)result.getSelectionModel().getSelectedItem() == null){
+                        return false;
+                }
+                return true;
+        }
+
         /**
          * Adds a coffee order, given parameters from the UI.
          */
         @FXML
         protected void removeCoffee(){
+                if(!canRemoveCoffee()){
+                        String errorMessage = "Must select a valid coffee!";
+                        Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+                        coffeeFailure.setContentText(errorMessage);
+                        coffeeFailure.show();
+                        return;
+                }
+
                 String value = (String)result.getSelectionModel().getSelectedItem();
                 String sizeOfCoffee = value.substring(BEGININDEX,value.indexOf("("));
+                int quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
+                        value.indexOf(")")));
+                int numberOfAddons = Integer.parseInt(
+                        value.substring(value.indexOf(":") + OFFSETINDEX,value.indexOf(".")));
                 Coffee tempCoffee = new Coffee(sizeOfCoffee);
-                total -= tempCoffee.itemPrice();
+                ArrayList<String> addons = new ArrayList<String>();
+                for(int i = 0; i < numberOfAddons; i++){
+                        addons.add("");
+                }
+                tempCoffee.addaddIn(addons);
+                total -= (tempCoffee.itemPrice()) * quantity;
                 round();
                 runningTotal.setText(total +  "");
-
+                coffee.remove(value);
         }
 
 
@@ -172,6 +215,12 @@ public class CoffeeViewController {
                 result.setItems(coffee);
                 quantitycomboBox.setValue(1);
                 runningTotal.setText("");
+                result.setItems(coffee);
+                irishCream.setSelected(false);
+                caramelBox.setSelected(false);
+                frenchVanilla.setSelected(false);
+                mochaBox.setSelected(false);
+                sweetCream.setSelected(false);
         }
 
 

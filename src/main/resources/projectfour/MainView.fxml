@@ -53,7 +53,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button alignment="TOP_CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" text="Store Orders" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button alignment="TOP_CENTER" contentDisplay="TOP" minHeight="190.0" minWidth="180.0" mnemonicParsing="false" text="Store Orders" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#onAllOrders">
                <graphic>
                   <ImageView fitHeight="161.0" fitWidth="150.0" pickOnBounds="true">
                      <image>

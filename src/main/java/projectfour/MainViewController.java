@@ -30,4 +30,10 @@ public class MainViewController {
     }
 
 
+    @FXML
+    protected void onAllOrders() throws IOException {
+        OrderMenuView view = new OrderMenuView();
+        view.start(new Stage());
+    }
+
 }
