@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class AllOrders {
     public static ArrayList<Order> allOrder = new ArrayList<>();
+    public static ArrayList<Order> storeOrders = new ArrayList<>();
+
     public static int uniqueNumber = 0;
     public static void addOrder(Order order, int index){
         if(allOrder.size() == index) {
@@ -21,7 +23,15 @@ public class AllOrders {
             ord.setPrice(order.getPrice());
             allOrder.set(index, ord);
             }
-        System.out.println(allOrder.get(0).getMenuItems());
+    }
+
+    public static void addStoreOrder(int index){
+        storeOrders.add(allOrder.get(allOrder.size()-1));
+        for(int i = 0; i < storeOrders.size(); i++) {
+            System.out.print(storeOrders.get(i).getPrice());
+            System.out.println(storeOrders.get(i).getMenuItems());
+        }
+        System.out.println();
     }
     public static ArrayList<Order> allOrderR(){
         return allOrder;

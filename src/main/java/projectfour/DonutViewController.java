@@ -26,7 +26,7 @@ public class DonutViewController {
             FXCollections.observableArrayList("French", "Original",
                     "Powder");
     ObservableList<String> donuts;
-    private double total;
+    public static double total;
     private int uniqueOrder = 0;
     private Order order;
     @FXML
@@ -92,6 +92,9 @@ public class DonutViewController {
     protected void addDonut(){
         String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
         String flavor = (String)flavors.getSelectionModel().getSelectedItem();
+        if(flavor == null){
+            return;
+        }
         int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
         if(donutType.equals("Yeast Donut")){
             Yeast yeast = new Yeast(flavor);
@@ -177,7 +180,8 @@ public class DonutViewController {
             String type = donuts.get(i);
             order.addItem(type);
         }
-        order.setPrice(order.getPrice()+total);
+        System.out.println(CoffeeViewController.total + total);
+        order.setPrice(CoffeeViewController.total + total);
         AllOrders.addOrder(order,uniqueOrder);
         reset();
     }

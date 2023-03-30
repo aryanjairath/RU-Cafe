@@ -24,7 +24,7 @@ public class CoffeeViewController {
                         "Caramel", "Mocha");
         ObservableList<String> coffee;
 
-        private double total;
+        public static double total;
         private static final int uniqueOrder = 0;
 
         private Order order;
@@ -202,7 +202,8 @@ public class CoffeeViewController {
                         String type = coffee.get(i);
                         order.addItem(type);
                 }
-                order.setPrice(order.getPrice()+total);
+                System.out.println(DonutViewController.total + total);
+                order.setPrice(DonutViewController.total + total);
                 AllOrders.addOrder(order,uniqueOrder);
                 reset();
         }

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuView.java" afterDir="false" />
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="completed donut(mostly)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;app.teamhub.trackedBranches&quot;: &quot;1g3us7n/master&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_2&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -57,9 +54,22 @@
       <recent name="C:\Users\Owner\IdeaProjects\CS_213_Project_4" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CoffeeView">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="CoffeeView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.CoffeeView" />
+      <module name="CS_213_Project_4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="projectfour.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projectfour.HelloApplication" />
       <module name="CS_213_Project_4" />
       <extension name="coverage">
         <pattern>
@@ -97,19 +107,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderMenuView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="projectfour.OrderMenuView" />
-      <module name="CS_213_Project_4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="projectfour.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OrderingBasketView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="projectfour.OrderingBasketView" />
       <module name="CS_213_Project_4" />
@@ -125,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CoffeeView" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.OrderMenuView" />
         <item itemvalue="Application.OrderingBasketView" />
+        <item itemvalue="Application.CoffeeView" />
         <item itemvalue="Application.MainView" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -142,9 +139,6 @@
       <option name="presentableId" value="Default" />
       <updated>1679417304332</updated>
       <workItem from="1679896743896" duration="2176000" />
-      <workItem from="1680152434293" duration="1998000" />
-      <workItem from="1680155038514" duration="711000" />
-      <workItem from="1680157210922" duration="5549000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1679417476132</created>
@@ -216,14 +210,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679955150971</updated>
     </task>
-    <task id="LOCAL-00011" summary="add coffee and store order view (still need to finish coding)">
-      <created>1680155760449</created>
+    <task id="LOCAL-00011" summary="fixed pictures, removed exception">
+      <created>1679975067893</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1680155760449</updated>
+      <updated>1679975067893</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="completed donut(mostly)">
+      <created>1680194025295</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680194025295</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +239,8 @@
     <MESSAGE value="added donut functionality (small tweaks needed)" />
     <MESSAGE value="added ordering basket and some views (needs logic fixes)" />
     <MESSAGE value="added files" />
-    <MESSAGE value="add coffee and store order view (still need to finish coding)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add coffee and store order view (still need to finish coding)" />
+    <MESSAGE value="fixed pictures, removed exception" />
+    <MESSAGE value="completed donut(mostly)" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed donut(mostly)" />
   </component>
 </project>
