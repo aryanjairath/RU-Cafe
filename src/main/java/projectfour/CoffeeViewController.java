@@ -178,7 +178,9 @@ public class CoffeeViewController {
                 }
                 return true;
         }
-
+        public static void setTotal(double tot){
+                total = tot;
+        }
         /**
          * Adds a coffee order, given parameters from the UI.
          */
@@ -219,12 +221,15 @@ public class CoffeeViewController {
                         String type = coffee.get(i);
                         order.addItem(type);
                 }
-                System.out.println(DonutViewController.total + total);
-                order.setPrice(DonutViewController.total + total);
-                AllOrders.addOrder(order,uniqueOrder);
+                System.out.println(DonutViewController.getTotal() + total);
+                order.setPrice(DonutViewController.getTotal() + total);
+                AllOrders.addOrder(order, uniqueOrder);
                 reset();
         }
 
+        public static double getTotal(){
+                return total;
+        }
 
         private void reset(){
                 initialize();

@@ -25,6 +25,8 @@ public class OrderingBasketController {
     private ListView items;
     private static double TAXRATE = .0625;
     private static int SIZEINDEX = 1;
+    private static int OFFSETINDEX = 1;
+
     private static int EMPTY = 1;
     private ObservableList<String> donuts;
 
@@ -90,14 +92,20 @@ public class OrderingBasketController {
             System.out.println(cake.itemPrice() * quantity);
 
         }
-        /*if(value.contains("Short") || value.contains("Tall") || value.contains("Grande") || value.contains("Venti")){
-            quantity = quantity1;
-            Coffee add = new Coffee("Any");
-            coffee.add(size + "(" + quantity + ")");
-            result.setItems(coffee);
-            total += coffeeOrder.itemPrice()*quantity;
-            round();
-        }*/
+        if(value.contains("Short") || value.contains("Tall") || value.contains("Grande") || value.contains("Venti")){
+            String sizeOfCoffee = value.substring(0,value.indexOf("("));
+            quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
+                    value.indexOf(")")));
+            int numberOfAddons = Integer.parseInt(
+                    value.substring(value.indexOf(":") + OFFSETINDEX,value.indexOf(".")));
+            Coffee tempCoffee = new Coffee(sizeOfCoffee);
+            ArrayList<String> addons = new ArrayList<String>();
+            for(int i = 0; i < numberOfAddons; i++){
+                addons.add("");
+            }
+            tempCoffee.addaddIn(addons);
+            amt = Double.parseDouble(subtotal.getText()) - tempCoffee.itemPrice() * quantity;
+        }
         amt = round(amt);
         list.get(list.size() - SIZEINDEX).setPrice(amt);
         revealPricing();
@@ -111,8 +119,8 @@ public class OrderingBasketController {
         }
         AllOrders.addStoreOrder(order.getOrderNumber());
         AllOrders.allOrder = new ArrayList<>();
-        DonutViewController.total = 0;
-        CoffeeViewController.total = 0;
+        DonutViewController.setTotal(0);
+        CoffeeViewController.setTotal(0);
         AllOrders.incrementUnique();
         reset();
     }
