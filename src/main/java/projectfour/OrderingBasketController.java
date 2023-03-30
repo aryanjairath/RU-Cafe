@@ -26,11 +26,7 @@ public class OrderingBasketController {
     private static double TAXRATE = .0625;
     private static int SIZEINDEX = 1;
     private static int EMPTY = 1;
-
-
-    public OrderingBasketController(){
-    }
-
+    private ObservableList<String> donuts;
 
     @FXML
     protected void revealPricing(){
@@ -44,7 +40,7 @@ public class OrderingBasketController {
         amountdue.setText(finalAmt + "");
         ArrayList<Order> orders = AllOrders.allOrderR();
         ArrayList<String> order = orders.get(orders.size() - SIZEINDEX).getMenuItems();
-        ObservableList<String> donuts = FXCollections.observableArrayList();
+        donuts = FXCollections.observableArrayList();
         for(int i  = 0; i < order.size(); i++)
             donuts.add(order.get(i));
         items.setItems(donuts);
@@ -98,4 +94,25 @@ public class OrderingBasketController {
         revealPricing();
     }
 
+    @FXML
+    protected void onPlaceOrder(){
+        Order order = new Order(AllOrders.getUniqueNumber());
+        for(int i = 0; i < donuts.size(); i++){
+            order.addItem(donuts.get(i));
+        }
+        AllOrders.addStoreOrder(order.getOrderNumber());
+        AllOrders.allOrder = new ArrayList<>();
+        AllOrders.incrementUnique();
+        DonutViewController.total = 0;
+        reset();
+    }
+
+    private void reset(){
+        subtotal.setText("");
+        tax.setText("");
+        amountdue.setText("");
+        donuts = FXCollections.observableArrayList();
+        items.setItems(donuts);
+
+    }
 }

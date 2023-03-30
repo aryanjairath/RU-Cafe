@@ -26,7 +26,7 @@ public class DonutViewController {
             FXCollections.observableArrayList("French", "Original",
                     "Powder");
     ObservableList<String> donuts;
-    private double total;
+    public static double total;
     private int uniqueOrder = 0;
     private Order order;
     @FXML
