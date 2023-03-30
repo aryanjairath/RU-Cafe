@@ -180,7 +180,8 @@ public class DonutViewController {
             String type = donuts.get(i);
             order.addItem(type);
         }
-        order.setPrice(order.getPrice()+total);
+        System.out.println(CoffeeViewController.total + total);
+        order.setPrice(CoffeeViewController.total + total);
         AllOrders.addOrder(order,uniqueOrder);
         reset();
     }

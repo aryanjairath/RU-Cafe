@@ -62,10 +62,11 @@ public class OrderingBasketController {
         list.get(list.size() - SIZEINDEX).getMenuItems().remove(value);
         int quantity;
         double amt=0;
+        int quantity1 = Integer.parseInt(value.substring(value.indexOf('(') + 1, value.indexOf(')')));
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            quantity = quantity1;
             System.out.println(quantity);
             Yeast yeast = new Yeast("Any");
             amt = Double.parseDouble(subtotal.getText()) - yeast.itemPrice() * quantity;
@@ -73,7 +74,7 @@ public class OrderingBasketController {
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            quantity = quantity1;
             System.out.println(quantity);
             DonutHole hole = new DonutHole("Any");
             amt = Double.parseDouble(subtotal.getText()) - hole.itemPrice() * quantity;
@@ -82,13 +83,21 @@ public class OrderingBasketController {
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length() - SIZEINDEX));
+            quantity = quantity1;
             System.out.println(quantity);
             Cake cake = new Cake("Any");
             amt = Double.parseDouble(subtotal.getText()) - cake.itemPrice() * quantity;
             System.out.println(cake.itemPrice() * quantity);
 
         }
+        /*if(value.contains("Short") || value.contains("Tall") || value.contains("Grande") || value.contains("Venti")){
+            quantity = quantity1;
+            Coffee add = new Coffee("Any");
+            coffee.add(size + "(" + quantity + ")");
+            result.setItems(coffee);
+            total += coffeeOrder.itemPrice()*quantity;
+            round();
+        }*/
         amt = round(amt);
         list.get(list.size() - SIZEINDEX).setPrice(amt);
         revealPricing();
@@ -102,8 +111,9 @@ public class OrderingBasketController {
         }
         AllOrders.addStoreOrder(order.getOrderNumber());
         AllOrders.allOrder = new ArrayList<>();
-        AllOrders.incrementUnique();
         DonutViewController.total = 0;
+        CoffeeViewController.total = 0;
+        AllOrders.incrementUnique();
         reset();
     }
 
