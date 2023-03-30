@@ -70,6 +70,11 @@ public class CoffeeViewController {
 
         @FXML
         private CheckBox mochaBox;
+
+        /**
+         * Constructor for the CoffeeViewController, which initializes several
+         * important instance variables.
+         */
         public CoffeeViewController(){
                 comboBox = new ComboBox();
                 quantitycomboBox = new ComboBox();
@@ -80,6 +85,9 @@ public class CoffeeViewController {
                 initialize();
         }
 
+        /**
+         * Initializes the UI with given values.
+         */
         @FXML
         protected void initialize(){
                 comboBox.setValue("Coffee Size");
@@ -92,6 +100,10 @@ public class CoffeeViewController {
 
         }
 
+        /**
+         * Gets the addons from the check boxes in the ui.
+         * @return an array list containing which addons were selected.
+         */
 
         private ArrayList<String> getAddons(){
                 ArrayList<String> addList = new ArrayList<>();
@@ -121,9 +133,14 @@ public class CoffeeViewController {
         }
 
 
+        /**
+         * Checks if a given order can be added to the orders list
+         * @return a boolean indicating if the above is possible.
+         */
 
         private boolean checkOrder(){
-                if(((String)comboBox.getSelectionModel().getSelectedItem()).equals("Coffee Size")){
+                if(((String)comboBox.getSelectionModel().getSelectedItem()).equals(
+                        "Coffee Size")){
                         return false;
                 }
                 return true;
