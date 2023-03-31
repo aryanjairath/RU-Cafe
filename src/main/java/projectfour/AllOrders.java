@@ -28,7 +28,7 @@ public class AllOrders {
     public static void addStoreOrder(int index){
         storeOrders.add(allOrder.get(allOrder.size()-1));
         for(int i = 0; i < storeOrders.size(); i++) {
-            System.out.print(storeOrders.get(i).getPrice());
+            System.out.println(storeOrders.get(i).getPrice());
             System.out.println(storeOrders.get(i).getMenuItems());
         }
         System.out.println();
