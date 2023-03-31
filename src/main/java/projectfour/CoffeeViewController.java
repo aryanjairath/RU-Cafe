@@ -163,7 +163,7 @@ public class CoffeeViewController {
                 ArrayList<String> addOns = getAddons();
                 coffeeOrder.addaddIn(addOns);
                 int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                coffee.add(size + "(" + quantity + ")" + "Number of addons:" +  addOns.size()+ ".");
+                coffee.add(size + "(" + quantity + ")" + " Addons: \n" +  addOns.toString()+ ".");
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
@@ -180,7 +180,7 @@ public class CoffeeViewController {
         }
 
         /**
-         * Adds a coffee order, given parameters from the UI.
+         * Removes a coffee order, given parameters from the UI.
          */
         @FXML
         protected void removeCoffee(){
@@ -196,12 +196,13 @@ public class CoffeeViewController {
                 String sizeOfCoffee = value.substring(BEGININDEX,value.indexOf("("));
                 int quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
                         value.indexOf(")")));
-                int numberOfAddons = Integer.parseInt(
-                        value.substring(value.indexOf(":") + OFFSETINDEX,value.indexOf(".")));
+                String addOns = value.substring(value.indexOf("[") + OFFSETINDEX,
+                        value.indexOf("]"));
+                String[] addOnFromOrder = addOns.split(",");
                 Coffee tempCoffee = new Coffee(sizeOfCoffee);
                 ArrayList<String> addons = new ArrayList<String>();
-                for(int i = 0; i < numberOfAddons; i++){
-                        addons.add("");
+                for(int i = 0; i < addOnFromOrder.length; i++){
+                        addons.add(addOnFromOrder[i]);
                 }
                 tempCoffee.addaddIn(addons);
                 total -= (tempCoffee.itemPrice()) * quantity;
@@ -211,6 +212,9 @@ public class CoffeeViewController {
         }
 
 
+        /**
+         * Adds an order, based on the UI parameters.
+         */
         @FXML
         protected void addOrder(){
                 if(coffee.size() == BEGININDEX)
@@ -225,6 +229,10 @@ public class CoffeeViewController {
                 reset();
         }
 
+
+        /**
+         * Resets parameters in the UI after an order is submitted.
+         */
 
         private void reset(){
                 initialize();
@@ -241,6 +249,9 @@ public class CoffeeViewController {
                 sweetCream.setSelected(false);
         }
 
+        /**
+         * Rounds a decimal number to two digits.
+         */
 
         private void round(){
                 DecimalFormat df = new DecimalFormat();

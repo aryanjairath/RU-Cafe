@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="completed donut(mostly)">
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680194025295</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="final touches to coffee class.">
+      <created>1680207381842</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680207381843</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +245,7 @@
     <MESSAGE value="added files" />
     <MESSAGE value="fixed pictures, removed exception" />
     <MESSAGE value="completed donut(mostly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed donut(mostly)" />
+    <MESSAGE value="final touches to coffee class." />
+    <option name="LAST_COMMIT_MESSAGE" value="final touches to coffee class." />
   </component>
 </project>
