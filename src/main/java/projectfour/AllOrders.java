@@ -6,7 +6,7 @@ public class AllOrders {
     public static ArrayList<Order> allOrder = new ArrayList<>();
     public static ArrayList<Order> storeOrders = new ArrayList<>();
 
-    public static int uniqueNumber = 0;
+    public static int uniqueNumber = 1;
     public static void addOrder(Order order, int index){
         if(allOrder.size() == index) {
             allOrder.add(order);
@@ -26,10 +26,13 @@ public class AllOrders {
     }
 
     public static void addStoreOrder(int index){
-        storeOrders.add(allOrder.get(allOrder.size()-1));
+        Order orderToAdd = allOrder.get(allOrder.size()-1);
+        orderToAdd.setOrderNumber(AllOrders.getUniqueNumber());
+        storeOrders.add(orderToAdd);
         for(int i = 0; i < storeOrders.size(); i++) {
             System.out.println(storeOrders.get(i).getPrice());
             System.out.println(storeOrders.get(i).getMenuItems());
+            System.out.println(storeOrders.get(i).getOrderNumber());
         }
         System.out.println();
     }
@@ -41,6 +44,14 @@ public class AllOrders {
     }
     public static void incrementUnique(){
         uniqueNumber++;
+    }
+
+    public static ArrayList<Order> allStoreOrders(){
+        return storeOrders;
+    }
+
+    public static void removeOrderedItem(int index){
+        storeOrders.remove(index);
     }
 
     public void removeOrder(Order order){

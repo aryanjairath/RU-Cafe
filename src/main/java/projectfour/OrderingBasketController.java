@@ -114,6 +114,8 @@ public class OrderingBasketController {
     @FXML
     protected void onPlaceOrder(){
         Order order = new Order(AllOrders.getUniqueNumber());
+        System.out.println(AllOrders.getUniqueNumber());
+        System.out.println(order.getOrderNumber());
         for(int i = 0; i < donuts.size(); i++){
             order.addItem(donuts.get(i));
         }
@@ -122,6 +124,8 @@ public class OrderingBasketController {
         DonutViewController.setTotal(0);
         CoffeeViewController.setTotal(0);
         AllOrders.incrementUnique();
+        System.out.println(AllOrders.getUniqueNumber());
+        System.out.println(order.getOrderNumber());
         reset();
     }
 

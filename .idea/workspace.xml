@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="completed donut(mostly)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +144,7 @@
       <workItem from="1680240933009" duration="480000" />
       <workItem from="1680241583515" duration="258000" />
       <workItem from="1680241928616" duration="3015000" />
+      <workItem from="1680283710073" duration="10402000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1679417476132</created>
@@ -227,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680194025295</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="store orders menu">
+      <created>1680283865427</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680283865427</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +254,7 @@
     <MESSAGE value="added files" />
     <MESSAGE value="fixed pictures, removed exception" />
     <MESSAGE value="completed donut(mostly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed donut(mostly)" />
+    <MESSAGE value="store orders menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="store orders menu" />
   </component>
 </project>

@@ -9,7 +9,7 @@ public class Donut extends MenuItem{
      */
     public Donut(String flavor){
         super(flavor);
-        this.flavor=flavor;
+        this.flavor = flavor;
     }
 
     /**
