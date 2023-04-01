@@ -2,10 +2,7 @@ package projectfour;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.File;
@@ -93,6 +90,10 @@ public class DonutViewController {
         String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
         String flavor = (String)flavors.getSelectionModel().getSelectedItem();
         if(flavor == null){
+            String errorMessage = "Must select a donut flavor!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
             return;
         }
         int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
@@ -121,8 +122,13 @@ public class DonutViewController {
     @FXML
     protected void onRemove(){
         String value = (String)result.getSelectionModel().getSelectedItem();
-        if(value == null)
+        if(value == null) {
+            String errorMessage = "No Donut Selected!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
             return;
+        }
         donuts.remove(value);
         int quantity;
         if(value.contains("Strawberry") || value.contains("Vanilla")
@@ -182,8 +188,13 @@ public class DonutViewController {
     }
     @FXML
     protected void addOrder(){
-        if(donuts.size() == 0)
+        if(donuts.size() == 0){
+            String errorMessage = "No donuts are selected!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
             return;
+        }
         for(int i = 0; i < donuts.size(); i++) {
             String type = donuts.get(i);
             order.addItem(type);
