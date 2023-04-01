@@ -14,15 +14,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-    /**
-     * This class is the main method for tutition manager, which
-     * sets up the GUI and runs it.
-     * @author Anis Chihoub, Aryan Jairath
-     */
+/**
+ * This class starts the Order Menu View and essentially
+ * deals with all of the orders that the cafe obtains.
+ * @author Anis Chihoub, Aryan Jairath
+ *
+ */
 public class OrderMenuView extends Application {
 
     /**
-     * This method runs the stage for the GUI
+     * This method runs the stage for the order GUI
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
@@ -37,7 +38,7 @@ public class OrderMenuView extends Application {
     }
 
     /**
-     * This method runs launch to start the GUI.
+     * This method runs launch to start the order GUI.
      * @param args an array of String.
      */
     public static void main(String[] args) {

@@ -29,6 +29,7 @@ public class OrderingBasketView extends Application {
         stage.show();
     }
 
+
     /**
      * This method runs launch to start the GUI.
      * @param args an array of String.

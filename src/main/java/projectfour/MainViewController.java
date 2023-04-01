@@ -8,6 +8,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This class is the controller for the main view where a user
+ * can choose to order items, check their bag, and all store
+ * orders
+ * @author Aryan Jairath, Anis Chihoub
+ */
 public class MainViewController {
 
     @FXML

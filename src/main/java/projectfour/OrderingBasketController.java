@@ -33,7 +33,8 @@ public class OrderingBasketController {
     @FXML
     protected void revealPricing(){
         ArrayList<Order> list = AllOrders.allOrderR();
-        subtotal.setText(list.get(list.size() - SIZEINDEX).getPrice() + "");
+        double amount = round(list.get(list.size() - SIZEINDEX).getPrice());
+        subtotal.setText(amount + "");
         double taxAmt = list.get(list.size() - SIZEINDEX).getPrice() * TAXRATE;
         taxAmt = round(taxAmt);
         tax.setText(taxAmt + "");
