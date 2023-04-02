@@ -1,12 +1,11 @@
 package projectfour;
 
-import javafx.scene.control.ListView;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,10 +28,30 @@ public class OrderMenuController {
 
     private static int ENDINDEX = 1;
 
+
+    /**
+     * Constructor for Order Menu.
+     *
+     */
+
+    public void initialize(){
+        showAllOrders();
+    }
+
+
+    /**
+     * Writes all orders to the screen in the order menu controller.
+     */
     @FXML
     public void showAllOrders(){
-
         ArrayList<Order> orderList = AllOrders.allStoreOrders();
+        if(orderList.size() == BEGININDEX){
+            String errorMessage = "No Orders to load!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
+            return;
+        }
         System.out.println(orderList);
         if(orderList.size() != 0){
             ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();
@@ -68,10 +87,22 @@ public class OrderMenuController {
 
     @FXML
     private void removeItem(){
-        int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
-                .getSelectedItem()).substring(BEGININDEX,ENDINDEX)) - ENDINDEX;
+        ArrayList<Order> orderList = AllOrders.allStoreOrders();
+        if(orderList.size() == BEGININDEX || this.orderList.size() == BEGININDEX){
+            String errorMessage = "No orders to remove!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
+            return;
+        }
         String order = ((String) this.resultView.getSelectionModel()
-                .getSelectedItem()).substring(BEGININDEX,ENDINDEX);
+                .getSelectedItem());
+        System.out.println(order.indexOf(":") + ENDINDEX);
+        System.out.println(order.indexOf(":") + ENDINDEX + ENDINDEX);
+        int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
+                .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
+                order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;
+
         AllOrders.removeOrderedItem(orderNumber);
         this.orderList.remove(orderNumber);
         System.out.println(this.orderList);
@@ -87,10 +118,24 @@ public class OrderMenuController {
 
     @FXML
     public void exportToTextFile() throws IOException {
+        ArrayList<Order> orderList = AllOrders.allStoreOrders();
+
+        if(orderList.size() == BEGININDEX || this.orderList.size() == BEGININDEX){
+            String errorMessage = "No Orders to save!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
+            return;
+        }
         FileWriter writer = new FileWriter("output.txt");
         for(String str: this.orderList) {
             writer.write(str + System.lineSeparator());
         }
+
+        String errorMessage = "Orders added to output.txt in main directory!";
+        Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
+        coffeeFailure.setContentText(errorMessage);
+        coffeeFailure.show();
         writer.close();
     }
 

@@ -219,6 +219,14 @@ public class CoffeeViewController {
          */
         @FXML
         protected void addOrder(){
+                if(!checkOrder()){
+                        String errorMessage = "Must select a valid coffee!";
+                        Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+                        coffeeFailure.setContentText(errorMessage);
+                        coffeeFailure.show();
+                        return;
+                }
+
                 if(coffee.size() == BEGININDEX)
                         return;
                 for(int i = 0; i < coffee.size(); i++) {

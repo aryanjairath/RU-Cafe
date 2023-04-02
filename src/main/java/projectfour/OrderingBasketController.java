@@ -111,6 +111,10 @@ public class OrderingBasketController {
         revealPricing();
     }
 
+    public void initialize(){
+        revealPricing();
+    }
+
     @FXML
     protected void onPlaceOrder(){
         Order order = new Order(AllOrders.getUniqueNumber());

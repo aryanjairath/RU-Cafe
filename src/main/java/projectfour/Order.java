@@ -39,7 +39,8 @@ public class Order {
         return round(getPrice() * TAXAMOUNT);
     }
     public String toString(){
-        return getOrderNumber() + " " + this.getMenuItems().toString() + " Price: " + totalPrice();
+        return "Order number: " + getOrderNumber() + " "
+                + this.getMenuItems().toString() + " Price: " + totalPrice();
 
     }
 

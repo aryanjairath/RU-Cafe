@@ -1,11 +1,17 @@
 package projectfour;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * This class is the main method for tutition manager, which
@@ -19,6 +25,18 @@ public class OrderingBasketView extends Application {
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
+
+    @FXML
+    private ListView resultView;
+
+    private static int SIZEINDEX = 1;
+
+    private ObservableList<String> orderList;
+
+    private static int BEGININDEX = 0;
+
+    private static int ENDINDEX = 1;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
@@ -27,6 +45,7 @@ public class OrderingBasketView extends Application {
         stage.setTitle("Ordering Basket");
         stage.setScene(scene);
         stage.show();
+
     }
 
     /**
