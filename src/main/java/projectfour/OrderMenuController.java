@@ -41,15 +41,11 @@ public class OrderMenuController {
      * Constructor for Order Menu.
      *
      */
-
     public void initialize(){
         showAllOrders();
     }
 
 
-    /**
-     * Writes all orders to the screen in the order menu controller.
-     */
     /**
      * This method shows all the orders that were placed
      * when the button is pressed.
@@ -65,7 +61,7 @@ public class OrderMenuController {
             coffeeFailure.show();
             return;
         }
-        System.out.println(orderList);
+
         if(orderList.size() != EMPTY){
             ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();
             this.orderList = FXCollections.observableArrayList();
@@ -85,7 +81,6 @@ public class OrderMenuController {
      * @param amount a double representing a price.
      * @return a rounded price.
      */
-
     private double round(double amount){
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
@@ -98,7 +93,6 @@ public class OrderMenuController {
     /**
      * Removes an item from the ordering list, given access to various element from the UI.
      */
-
     @FXML
     private void removeItem(){
         ArrayList<Order> orderList = AllOrders.allStoreOrders();
@@ -111,15 +105,12 @@ public class OrderMenuController {
         }
         String order = ((String) this.resultView.getSelectionModel()
                 .getSelectedItem());
-        System.out.println(order.indexOf(":") + ENDINDEX);
-        System.out.println(order.indexOf(":") + ENDINDEX + ENDINDEX);
         int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
                 .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
                 order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;
 
         AllOrders.removeOrderedItem(orderNumber);
         this.orderList.remove(orderNumber);
-        System.out.println(this.orderList);
         this.resultView.setItems(this.orderList);
     }
 
@@ -128,8 +119,6 @@ public class OrderMenuController {
      * Writes orders to a text file.
      * @throws IOException, if the file is not found.
      */
-
-
     @FXML
     public void exportToTextFile() throws IOException {
         ArrayList<Order> orderList = AllOrders.allStoreOrders();

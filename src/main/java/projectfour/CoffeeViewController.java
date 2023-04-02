@@ -167,7 +167,7 @@ public class CoffeeViewController {
                 ArrayList<String> addOns = getAddons();
                 coffeeOrder.addaddIn(addOns);
                 int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                coffee.add(size + "(" + quantity + ")" + " Addons: \n" +  addOns.toString()+ ".");
+                coffee.add(size + "(" + quantity + ")" + " Addons: " +  addOns.toString()+ ".");
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
@@ -248,7 +248,6 @@ public class CoffeeViewController {
                         String type = coffee.get(i);
                         order.addItem(type);
                 }
-                System.out.println(DonutViewController.getTotal() + total);
                 order.setPrice(DonutViewController.getTotal() + total);
                 AllOrders.addOrder(order, uniqueOrder);
                 reset();

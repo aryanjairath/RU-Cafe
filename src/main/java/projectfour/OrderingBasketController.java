@@ -4,12 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
+/**
+ * This class is the controller for the ordering basket and
+ * manages all UI interactions for this view.
+ * @author Aryan Jairath, Anis Chihoub
+ */
 public class OrderingBasketController {
 
     @FXML
@@ -24,14 +29,22 @@ public class OrderingBasketController {
     @FXML
     private ListView items;
     private static double TAXRATE = .0625;
+    private static double ZEROTOTAL = 0;
+
     private static int SIZEINDEX = 1;
     private static int OFFSETINDEX = 1;
 
-    private static int EMPTY = 1;
+    private static int TWODIGITS = 2;
+    private static int START = 0;
+
+
     private ObservableList<String> donuts;
 
 
-
+    /**
+     * This method displays the current order's pricing
+     * in the ordering basket for viewing.
+     */
     @FXML
     public void revealPricing(){
         ArrayList<Order> list = AllOrders.allOrderR();
@@ -50,14 +63,26 @@ public class OrderingBasketController {
             donuts.add(order.get(i));
         items.setItems(donuts);
     }
+
+
+    /**
+     * This method rounds a decimal number to two digits
+     * @param amount The value to round to two decimals
+     * @return The rounded double value
+     */
     private double round(double amount){
         DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(2);
+        df.setMaximumFractionDigits(TWODIGITS);
+        df.setMinimumFractionDigits(TWODIGITS);
         amount = Double.parseDouble(df.format(amount));
         return amount;
     }
 
+    /**
+     * This method removes an item from the arraylist of
+     * all orders and also reflects the corresponding
+     * updated pricing
+     */
     @FXML
     protected void onRemove(){
         String value = (String)items.getSelectionModel().getSelectedItem();
@@ -66,37 +91,30 @@ public class OrderingBasketController {
         ArrayList<Order> list = AllOrders.allOrderR();
         list.get(list.size() - SIZEINDEX).getMenuItems().remove(value);
         int quantity;
-        double amt=0;
-        int quantity1 = Integer.parseInt(value.substring(value.indexOf('(') + 1, value.indexOf(')')));
+        double amt = 0;
+        int quantity1 = Integer.parseInt(value.substring(value.indexOf('(')
+                + OFFSETINDEX, value.indexOf(')')));
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
             quantity = quantity1;
-            System.out.println(quantity);
             Yeast yeast = new Yeast("Any");
             amt = Double.parseDouble(subtotal.getText()) - yeast.itemPrice() * quantity;
-            System.out.println(yeast.itemPrice() * quantity);
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
             quantity = quantity1;
-            System.out.println(quantity);
             DonutHole hole = new DonutHole("Any");
             amt = Double.parseDouble(subtotal.getText()) - hole.itemPrice() * quantity;
-            System.out.println(hole.itemPrice() * quantity);
-
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
             quantity = quantity1;
-            System.out.println(quantity);
             Cake cake = new Cake("Any");
             amt = Double.parseDouble(subtotal.getText()) - cake.itemPrice() * quantity;
-            System.out.println(cake.itemPrice() * quantity);
-
         }
         if(value.contains("Short") || value.contains("Tall") || value.contains("Grande") || value.contains("Venti")){
-            String sizeOfCoffee = value.substring(0,value.indexOf("("));
+            String sizeOfCoffee = value.substring(START,value.indexOf("("));
             quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
                     value.indexOf(")")));
             int numberOfAddons = Integer.parseInt(
@@ -114,28 +132,36 @@ public class OrderingBasketController {
         revealPricing();
     }
 
+    /**
+     * This method initializes the pricing for the Ordering
+     * basket
+     */
     public void initialize(){
         revealPricing();
     }
 
+    /**
+     * This method adds the current order to the
+     * order arraylist and increments the order number
+     */
     @FXML
     protected void onPlaceOrder(){
         Order order = new Order(AllOrders.getUniqueNumber());
-        System.out.println(AllOrders.getUniqueNumber());
-        System.out.println(order.getOrderNumber());
         for(int i = 0; i < donuts.size(); i++){
             order.addItem(donuts.get(i));
         }
         AllOrders.addStoreOrder(order.getOrderNumber());
         AllOrders.allOrder = new ArrayList<>();
-        DonutViewController.setTotal(0);
-        CoffeeViewController.setTotal(0);
+        DonutViewController.setTotal(ZEROTOTAL);
+        CoffeeViewController.setTotal(ZEROTOTAL);
         AllOrders.incrementUnique();
-        System.out.println(AllOrders.getUniqueNumber());
-        System.out.println(order.getOrderNumber());
         reset();
     }
 
+    /**
+     * This method resets all fields after the add to order
+     * button is pressed
+     */
     private void reset(){
         subtotal.setText("");
         tax.setText("");

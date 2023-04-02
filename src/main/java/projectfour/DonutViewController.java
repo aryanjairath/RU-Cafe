@@ -39,12 +39,9 @@ public class DonutViewController {
     private final int TWODIGITS = 2;
     private final int EMPTY = 0;
 
-
     private final int OFFSETONE = 1;
 
     private final int STARTINDEX = 0;
-
-
 
     private int uniqueOrder = 0;
     private Order order;
@@ -60,6 +57,7 @@ public class DonutViewController {
     private ImageView donutImage;
     @FXML
     private TextField runningTotal;
+
 
     /**
      * Constructor for the donut view controller which sets the combo
@@ -252,7 +250,6 @@ public class DonutViewController {
             String type = donuts.get(i);
             order.addItem(type);
         }
-        System.out.println(CoffeeViewController.total + total);
         order.setPrice(CoffeeViewController.total + total);
         AllOrders.addOrder(order,uniqueOrder);
         reset();
