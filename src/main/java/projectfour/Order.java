@@ -16,10 +16,14 @@ public class Order {
     private double price;
 
     private static double TAXAMOUNT = 1.06625;
+    private int DIGITS = 2;
+
+    private int ZEROPRICE = 0;
+
     public Order(int orderNumber){
         this.orderNumber = orderNumber;
         menuItems = new ArrayList<String>();
-        price = 0;
+        price = ZEROPRICE;
     }
 
     /**
@@ -95,8 +99,8 @@ public class Order {
      */
     private double round(double number){
         DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(2);
+        df.setMaximumFractionDigits(DIGITS);
+        df.setMinimumFractionDigits(DIGITS);
         number = Double.parseDouble(df.format(number));
         return number;
     }

@@ -16,26 +16,40 @@ import java.io.IOException;
  */
 public class MainViewController {
 
+    /**
+     * This method is executed when the order donuts button is pressed
+     * @throws IOException an IO exception indicating something is missing
+     */
     @FXML
     protected void onOrderDonut() throws IOException {
         DonutView view = new DonutView();
         view.start(new Stage());
     }
 
+    /**
+     * This method is executed when the order coffee button is pressed
+     * @throws IOException an IO exception indicating something is missing
+     */
     @FXML
     protected void onOrderCoffee() throws IOException {
         CoffeeView view = new CoffeeView();
         view.start(new Stage());
     }
 
-
+    /**
+     * This method is executed when the order basket button is pressed
+     * @throws IOException an IO exception indicating something is missing
+     */
     @FXML
     protected void onYourOrder() throws IOException {
         OrderingBasketView view = new OrderingBasketView();
         view.start(new Stage());
     }
 
-
+    /**
+     * This method is executed when the store orders button is pressed
+     * @throws IOException an IO exception indicating something is missing
+     */
     @FXML
     protected void onAllOrders() throws IOException {
         OrderMenuView view = new OrderMenuView();

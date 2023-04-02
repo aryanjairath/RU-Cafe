@@ -30,8 +30,10 @@ public class OrderingBasketController {
     private static int EMPTY = 1;
     private ObservableList<String> donuts;
 
+
+
     @FXML
-    protected void revealPricing(){
+    public void revealPricing(){
         ArrayList<Order> list = AllOrders.allOrderR();
         double amount = round(list.get(list.size() - SIZEINDEX).getPrice());
         subtotal.setText(amount + "");
