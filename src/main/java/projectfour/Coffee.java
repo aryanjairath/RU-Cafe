@@ -2,6 +2,11 @@ package projectfour;
 
 import java.util.ArrayList;
 
+/**
+ * This class is used to represent a coffee with
+ * different sizes as selected by the GUI.
+ * @author Aryan Jairath, Anis Chihoub
+ */
 public class Coffee extends MenuItem{
     String cupsize;
     ArrayList<String> addIns;
@@ -58,14 +63,6 @@ public class Coffee extends MenuItem{
      * @return a boolean representing if the operation was successful.
      */
 
-    public boolean removeaddIn(String addIn){
-
-        if(!addIns.remove(addIn)){
-            return false;
-        }else{
-            return true;
-        }
-    }
 
     /**
      * Returns the item price for the given coffee based on
@@ -87,7 +84,11 @@ public class Coffee extends MenuItem{
     }
 
 
-
+    /**
+     * A string representation of a coffee object's fields
+     * @param quantity The number of coffees
+     * @return A String representation of the coffee object
+     */
     public  String toString(int quantity){
         String output = getCupSize() + " black coffee. \n";
         output += "Add Ons below: \n";
@@ -95,12 +96,9 @@ public class Coffee extends MenuItem{
         {
             output += addOn + "\t";
         }
-
         output += "____________";
         output += "Total Price: " + itemPrice()*quantity;
 
-
         return output;
-
     }
 }

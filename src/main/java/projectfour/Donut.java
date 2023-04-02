@@ -1,5 +1,11 @@
 package projectfour;
 
+/**
+ * This class is used to represent a donut where
+ * the flavors are decided based on what type of
+ * donut is selected.
+ * @author Aryan Jairath, Anis Chihoub
+ */
 public class Donut extends MenuItem{
     String flavor;
 
@@ -13,14 +19,18 @@ public class Donut extends MenuItem{
     }
 
     /**
-     *
-     * @return
+     * This method is a getter method for the price of a donut
+     * @return A double representing the price of a donut
      */
     @Override
     public double itemPrice() {
         return 0;
     }
 
+    /**
+     * A getter for the flavor of a certain donut object
+     * @return A String representing donut flavor
+     */
     public String getFlavor(){
         return this.flavor;
     }

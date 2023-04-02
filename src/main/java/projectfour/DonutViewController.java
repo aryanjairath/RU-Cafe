@@ -8,6 +8,13 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
+
+/**
+ * This class is the controller for the donut view
+ * and manages the responses to any GUI interactions
+ * for the donut view stage.
+ * @author Anis Chihoub, Aryan Jariath
+ */
 public class DonutViewController {
     ObservableList<String> donutList =
             FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Hole Donut");
@@ -38,6 +45,11 @@ public class DonutViewController {
     private ImageView donutImage;
     @FXML
     private TextField runningTotal;
+
+    /**
+     * Constructor for the donut view controller which sets the combo
+     * boxes and a couple pre-defined images
+     */
     public DonutViewController(){
         comboBox = new ComboBox();
         quantitycomboBox = new ComboBox();
@@ -48,6 +60,11 @@ public class DonutViewController {
         donutImage = new ImageView();
         initialize();
     }
+
+    /**
+     * Performs tasks and sets pre-defined values as soon
+     * as the view is opened.
+     */
     @FXML
     protected void initialize(){
         comboBox.setValue("Yeast Donut");
@@ -56,6 +73,12 @@ public class DonutViewController {
         quantitycomboBox.setItems(quantityList);
         flavors.setItems(yeastFlavors);
     }
+
+    /**
+     * Finds the selected value and a corresponding image for it
+     * @throws IOException Thrown in case there is no image found
+     * for the given selected value
+     */
     @FXML
     protected void selectedValue() throws IOException {
         if(comboBox.getValue().equals("Yeast Donut")){
@@ -85,6 +108,10 @@ public class DonutViewController {
 
     }
 
+    /**
+     * Performs actions when the add donut button is pressed
+     * to add donuts to temporary list view.
+     */
     @FXML
     protected void addDonut(){
         String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
@@ -119,6 +146,12 @@ public class DonutViewController {
         result.setItems(donuts);
         runningTotal.setText(total+"");
     }
+
+
+    /**
+     * Actions performed when the remove button is pressed
+     * in the GUI.
+     */
     @FXML
     protected void onRemove(){
         String value = (String)result.getSelectionModel().getSelectedItem();
@@ -153,39 +186,44 @@ public class DonutViewController {
         round();
         runningTotal.setText(total+"");
     }
+
+
+    /**
+     * Rounds a given decimal to two decimal places
+     * @return a rounded price.
+     */
     private void round(){
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
         total = Double.parseDouble(df.format(total));
     }
-    private MenuItem findItem(String value){
-        if(value.contains("Strawberry") || value.contains("Vanilla")
-                || value.contains("Blueberry") || value.contains("Apple")
-                || value.contains("Grape") || value.contains("Passionfruit")){
-            Yeast yeast = new Yeast(value);
-            return yeast;
-        }
-        if(value.contains("French") || value.contains("Original")
-                || value.contains("Powder")){
-            DonutHole hole = new DonutHole(value);
-            return hole;
-        }
-        if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
-                || value.contains("Cheese Cake")){
-            Cake cake = new Cake(value);
-            return cake;
-        }
-        return null;
-    }
 
+
+    /**
+     * This method sets a certain total for a donut order object
+     * @param tot A double representing the total value for
+     * a particular donut order
+     */
     public static void setTotal(double tot){
         total = tot;
     }
 
+
+    /**
+     * This method gives access to total cost field of donut.
+     * @return A double value representing the total donut view
+     * cost.
+     */
     public static double getTotal(){
         return total;
     }
+
+
+    /**
+     * This method performs actions when the add to order button
+     * is pressed; checks if donut can be added at all.
+     */
     @FXML
     protected void addOrder(){
         if(donuts.size() == 0){
@@ -204,6 +242,11 @@ public class DonutViewController {
         AllOrders.addOrder(order,uniqueOrder);
         reset();
     }
+
+    /**
+     * This method resets all fields after the add to order
+     * button is pressed
+     */
     private void reset(){
         initialize();
         order = new Order(uniqueOrder);

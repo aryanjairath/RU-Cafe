@@ -12,6 +12,12 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This class is the controller for the order menu
+ * and manages the responses to any GUI interactions
+ * for the order stage.
+ * @author Anis Chihoub, Aryan Jariath
+ */
 public class OrderMenuController {
 
     @FXML
@@ -25,6 +31,8 @@ public class OrderMenuController {
     private ObservableList<String> orderList;
 
     private static int BEGININDEX = 0;
+    private static int EMPTY = 0;
+
 
     private static int ENDINDEX = 1;
 
@@ -42,8 +50,13 @@ public class OrderMenuController {
     /**
      * Writes all orders to the screen in the order menu controller.
      */
+    /**
+     * This method shows all the orders that were placed
+     * when the button is pressed.
+     */
     @FXML
     public void showAllOrders(){
+
         ArrayList<Order> orderList = AllOrders.allStoreOrders();
         if(orderList.size() == BEGININDEX){
             String errorMessage = "No Orders to load!";
@@ -53,7 +66,7 @@ public class OrderMenuController {
             return;
         }
         System.out.println(orderList);
-        if(orderList.size() != 0){
+        if(orderList.size() != EMPTY){
             ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();
             this.orderList = FXCollections.observableArrayList();
 
@@ -65,6 +78,7 @@ public class OrderMenuController {
         }
         this.resultView.setItems(this.orderList);
     }
+
 
     /**
      * Rounds a given decimal to two decimal places

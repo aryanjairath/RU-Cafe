@@ -1,5 +1,10 @@
 package projectfour;
 
+/**
+ * This class is used to represent a cake donut with
+ * three potential flavors as selected by the GUI.
+ * @author Aryan Jairath, Anis Chihoub
+ */
 public class Cake extends Donut{
 
     private static final double PRICE = 1.79;

@@ -4,14 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.File;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This class is the controller for the coffee view
+ * and manages the responses to any GUI interactions
+ * for the coffee view stage.
+ * @author Anis Chihoub, Aryan Jariath
+ */
 public class CoffeeViewController {
         ObservableList<String> donutList =
                 FXCollections.observableArrayList("Short", "Tall", "Grande", "Venti");
@@ -97,7 +99,6 @@ public class CoffeeViewController {
                 quantitycomboBox.setItems(quantityList);
 
                 //flavors.setItems(yeastFlavors);
-
         }
 
         /**
@@ -171,16 +172,27 @@ public class CoffeeViewController {
 
         }
 
-
+        /**
+         * This method checks if coffee object can be removed or not
+         * @return A boolean representing if coffee can be removed
+         */
         private boolean canRemoveCoffee(){
                 if((String)result.getSelectionModel().getSelectedItem() == null){
                         return false;
                 }
                 return true;
         }
+
+        /**
+         * This method sets a certain total for a coffee order object
+         * @param tot A double representing the total value for
+         * a particular coffee order
+         */
         public static void setTotal(double tot){
                 total = tot;
         }
+
+
         /**
          * Removes a coffee order, given parameters from the UI.
          */
@@ -246,7 +258,6 @@ public class CoffeeViewController {
         /**
          * Resets parameters in the UI after an order is submitted.
          */
-
         private void reset(){
                 initialize();
                 order = new Order(uniqueOrder);
@@ -265,7 +276,6 @@ public class CoffeeViewController {
         /**
          * Rounds a decimal number to two digits.
          */
-
         private void round(){
                 DecimalFormat df = new DecimalFormat();
                 df.setMaximumFractionDigits(2);
