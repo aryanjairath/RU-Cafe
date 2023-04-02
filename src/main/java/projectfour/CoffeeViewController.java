@@ -28,6 +28,9 @@ public class CoffeeViewController {
 
         public static double total;
         private static final int uniqueOrder = 0;
+        private static final int INITIALSELECT = 0;
+        private static final int DECIDIGITS = 0;
+
 
         private Order order;
 
@@ -263,7 +266,7 @@ public class CoffeeViewController {
                 order = new Order(uniqueOrder);
                 coffee = FXCollections.observableArrayList();
                 result.setItems(coffee);
-                quantitycomboBox.setValue(1);
+                quantitycomboBox.setValue(INITIALSELECT);
                 runningTotal.setText("");
                 result.setItems(coffee);
                 irishCream.setSelected(false);
@@ -278,8 +281,8 @@ public class CoffeeViewController {
          */
         private void round(){
                 DecimalFormat df = new DecimalFormat();
-                df.setMaximumFractionDigits(2);
-                df.setMinimumFractionDigits(2);
+                df.setMaximumFractionDigits(DECIDIGITS);
+                df.setMinimumFractionDigits(DECIDIGITS);
                 total = Double.parseDouble(df.format(total));
         }
 }

@@ -31,6 +31,21 @@ public class DonutViewController {
                     "Powder");
     ObservableList<String> donuts;
     private static double total;
+    private final int ZEROTOTAL = 0;
+    private final int INITIALSELECT = 1;
+    private final int OFFSETTEN = 10;
+    private final int OFFSETNINE = 9;
+    private final int OFFSETTWO = 2;
+    private final int TWODIGITS = 2;
+    private final int EMPTY = 0;
+
+
+    private final int OFFSETONE = 1;
+
+    private final int STARTINDEX = 0;
+
+
+
     private int uniqueOrder = 0;
     private Order order;
     @FXML
@@ -54,7 +69,7 @@ public class DonutViewController {
         comboBox = new ComboBox();
         quantitycomboBox = new ComboBox();
         flavors = new ListView();
-        total = 0;
+        total = ZEROTOTAL;
         donuts = FXCollections.observableArrayList();
         order = new Order(uniqueOrder);
         donutImage = new ImageView();
@@ -69,7 +84,7 @@ public class DonutViewController {
     protected void initialize(){
         comboBox.setValue("Yeast Donut");
         comboBox.setItems(donutList);
-        quantitycomboBox.setValue(1);
+        quantitycomboBox.setValue(INITIALSELECT);
         quantitycomboBox.setItems(quantityList);
         flavors.setItems(yeastFlavors);
     }
@@ -85,7 +100,7 @@ public class DonutViewController {
             flavors.setItems(yeastFlavors);
             File f = new File("yeast.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(0, absolute.length()-10);
+            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -93,7 +108,7 @@ public class DonutViewController {
             flavors.setItems(cakeFlavors);
             File f = new File("cake.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(0, absolute.length()-9);
+            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETNINE);
             absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -101,7 +116,7 @@ public class DonutViewController {
             flavors.setItems(donutHoles);
             File f = new File("holes.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(0, absolute.length()-10);
+            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -167,19 +182,19 @@ public class DonutViewController {
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
             Yeast yeast = new Yeast("Any");
             total -= yeast.itemPrice() * quantity;
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
             DonutHole hole = new DonutHole("Any");
             total -= hole.itemPrice() * quantity;
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
-            quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
             Cake cake = new Cake("Any");
             total -= cake.itemPrice() * quantity;
         }
@@ -194,8 +209,8 @@ public class DonutViewController {
      */
     private void round(){
         DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(2);
+        df.setMaximumFractionDigits(TWODIGITS);
+        df.setMinimumFractionDigits(TWODIGITS);
         total = Double.parseDouble(df.format(total));
     }
 
@@ -226,7 +241,7 @@ public class DonutViewController {
      */
     @FXML
     protected void addOrder(){
-        if(donuts.size() == 0){
+        if(donuts.size() == EMPTY){
             String errorMessage = "No donuts are selected!";
             Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
             coffeeFailure.setContentText(errorMessage);
@@ -252,7 +267,7 @@ public class DonutViewController {
         order = new Order(uniqueOrder);
         donuts = FXCollections.observableArrayList();
         result.setItems(donuts);
-        quantitycomboBox.setValue(1);
+        quantitycomboBox.setValue(INITIALSELECT);
         runningTotal.setText("");
     }
 }

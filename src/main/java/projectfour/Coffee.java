@@ -10,6 +10,15 @@ import java.util.ArrayList;
 public class Coffee extends MenuItem{
     String cupsize;
     ArrayList<String> addIns;
+    private final double THIRTYPERCENT = 0.30;
+    private final int ZEROBALANCE = 0;
+    private final double SHORT = 1.89;
+    private final double TALL = 2.29;
+    private final double GRANDE = 2.69;
+    private final double VENTI = 1.89;
+
+
+
 
     /**
      * Constructor for the coffee class,
@@ -70,15 +79,15 @@ public class Coffee extends MenuItem{
      */
     @Override
     public double itemPrice() {
-        double balance = 0;
+        double balance = ZEROBALANCE;
         if(this.cupsize.equals("Short")){
-            balance += 1.89 + addIns.size() * 0.30;
+            balance += SHORT + addIns.size() * THIRTYPERCENT;
         }else if(this.cupsize.equals("Tall")){
-            balance += 2.29 + addIns.size() * 0.30;
+            balance += TALL + addIns.size() * THIRTYPERCENT;
         }else if(this.cupsize.equals("Grande")){
-            balance += 2.69 + addIns.size() * 0.30;
+            balance += GRANDE + addIns.size() * THIRTYPERCENT;
         }else if(this.cupsize.equals("Venti")){
-            balance += 3.09 + addIns.size() * 0.30;
+            balance += VENTI + addIns.size() * THIRTYPERCENT;
         }
         return balance;
     }

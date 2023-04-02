@@ -8,6 +8,7 @@ package projectfour;
  */
 public class Donut extends MenuItem{
     String flavor;
+    private static final int NOPRICE = 0;
 
     /**
      * Constructor for Donut. Takes a string represetning the flavor.
@@ -24,7 +25,7 @@ public class Donut extends MenuItem{
      */
     @Override
     public double itemPrice() {
-        return 0;
+        return NOPRICE;
     }
 
     /**
