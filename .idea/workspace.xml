@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="removed magic numbers addded comments">
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="minor tweaks, removed prints">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -255,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680407089474</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="minor tweaks, removed prints">
+      <created>1680462218458</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680462218458</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +283,7 @@
     <MESSAGE value="added error pop up for donut" />
     <MESSAGE value="add comments" />
     <MESSAGE value="removed magic numbers addded comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed magic numbers addded comments" />
+    <MESSAGE value="minor tweaks, removed prints" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor tweaks, removed prints" />
   </component>
 </project>

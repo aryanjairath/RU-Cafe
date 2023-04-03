@@ -45,7 +45,7 @@ public class AllOrders {
      * @param index The place at which the order is inserted
      */
     public static void addStoreOrder(int index){
-        Order orderToAdd = allOrder.get(allOrder.size()-OFFSETONE);
+        Order orderToAdd = allOrder.get(allOrder.size() - OFFSETONE);
         orderToAdd.setOrderNumber(AllOrders.getUniqueNumber());
         storeOrders.add(orderToAdd);
     }

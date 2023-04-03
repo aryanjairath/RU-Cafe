@@ -19,7 +19,6 @@ public class Coffee extends MenuItem{
 
 
 
-
     /**
      * Constructor for the coffee class,
      * @param cupsize a String representing the size of the cup.

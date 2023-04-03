@@ -3,6 +3,7 @@ package projectfour;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -36,6 +37,7 @@ public class OrderingBasketController {
 
     private static int TWODIGITS = 2;
     private static int START = 0;
+    private static int EMPTY = 0;
 
 
     private ObservableList<String> donuts;
@@ -48,6 +50,10 @@ public class OrderingBasketController {
     @FXML
     public void revealPricing(){
         ArrayList<Order> list = AllOrders.allOrderR();
+        donuts = FXCollections.observableArrayList();
+        if(list.size() == EMPTY){
+            return;
+        }
         double amount = round(list.get(list.size() - SIZEINDEX).getPrice());
         subtotal.setText(amount + "");
         double taxAmt = list.get(list.size() - SIZEINDEX).getPrice() * TAXRATE;
@@ -58,7 +64,6 @@ public class OrderingBasketController {
         amountdue.setText(finalAmt + "");
         ArrayList<Order> orders = AllOrders.allOrderR();
         ArrayList<String> order = orders.get(orders.size() - SIZEINDEX).getMenuItems();
-        donuts = FXCollections.observableArrayList();
         for(int i  = 0; i < order.size(); i++)
             donuts.add(order.get(i));
         items.setItems(donuts);
@@ -85,9 +90,14 @@ public class OrderingBasketController {
      */
     @FXML
     protected void onRemove(){
-        String value = (String)items.getSelectionModel().getSelectedItem();
-        if(value == null)
+        String value = (String) items.getSelectionModel().getSelectedItem();
+        if(value == null){
+            String errorMessage = "No items selected!";
+            Alert orderFailure = new Alert(Alert.AlertType.ERROR);
+            orderFailure.setContentText(errorMessage);
+            orderFailure.show();
             return;
+        }
         ArrayList<Order> list = AllOrders.allOrderR();
         list.get(list.size() - SIZEINDEX).getMenuItems().remove(value);
         int quantity;
@@ -147,6 +157,13 @@ public class OrderingBasketController {
     @FXML
     protected void onPlaceOrder(){
         Order order = new Order(AllOrders.getUniqueNumber());
+        if(donuts.size() == EMPTY){
+            String errorMessage = "No items in basket!";
+            Alert orderFailure = new Alert(Alert.AlertType.ERROR);
+            orderFailure.setContentText(errorMessage);
+            orderFailure.show();
+            return;
+        }
         for(int i = 0; i < donuts.size(); i++){
             order.addItem(donuts.get(i));
         }
@@ -155,7 +172,12 @@ public class OrderingBasketController {
         DonutViewController.setTotal(ZEROTOTAL);
         CoffeeViewController.setTotal(ZEROTOTAL);
         AllOrders.incrementUnique();
+        String orderPlaced = "Order placed!";
+        Alert orderSuccess = new Alert(Alert.AlertType.INFORMATION);
+        orderSuccess.setContentText(orderPlaced);
+        orderSuccess.show();
         reset();
+
     }
 
     /**

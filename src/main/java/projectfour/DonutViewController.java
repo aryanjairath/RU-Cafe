@@ -118,7 +118,6 @@ public class DonutViewController {
             absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
             donutImage.setImage(new Image(absolute));
         }
-
     }
 
     /**
@@ -127,31 +126,34 @@ public class DonutViewController {
      */
     @FXML
     protected void addDonut(){
-        String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
-        String flavor = (String)flavors.getSelectionModel().getSelectedItem();
+        String donutType = (String)comboBox.getSelectionModel().
+                getSelectedItem();
+        String flavor = (String)flavors.getSelectionModel().
+                getSelectedItem();
         if(flavor == null){
             String errorMessage = "Must select a donut flavor!";
-            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
-            coffeeFailure.setContentText(errorMessage);
-            coffeeFailure.show();
+            Alert donutFailure = new Alert(Alert.AlertType.ERROR);
+            donutFailure.setContentText(errorMessage);
+            donutFailure.show();
             return;
         }
-        int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
+        int quantity = (int) quantitycomboBox.getSelectionModel().
+                getSelectedItem();
         if(donutType.equals("Yeast Donut")){
             Yeast yeast = new Yeast(flavor);
-            total += yeast.itemPrice()*quantity;
+            total += yeast.itemPrice() * quantity;
         }
         if(donutType.equals("Cake Donut")){
             Cake cake = new Cake(flavor);
-            total += cake.itemPrice()*quantity;
+            total += cake.itemPrice() * quantity;
         }
         if(donutType.equals("Hole Donut")){
             DonutHole hole = new DonutHole(flavor);
-            total += hole.itemPrice()*quantity;
+            total += hole.itemPrice() * quantity;
         }
         String output = "";
         if(flavor != null)
-            output = (flavor+"("+quantity+")");
+            output = (flavor + "(" + quantity + ")");
         else
             return;
         round();
@@ -167,12 +169,13 @@ public class DonutViewController {
      */
     @FXML
     protected void onRemove(){
-        String value = (String)result.getSelectionModel().getSelectedItem();
+        String value = (String)result.getSelectionModel().
+                getSelectedItem();
         if(value == null) {
             String errorMessage = "No Donut Selected!";
-            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
-            coffeeFailure.setContentText(errorMessage);
-            coffeeFailure.show();
+            Alert donutFailure = new Alert(Alert.AlertType.ERROR);
+            donutFailure.setContentText(errorMessage);
+            donutFailure.show();
             return;
         }
         donuts.remove(value);
@@ -180,24 +183,27 @@ public class DonutViewController {
         if(value.contains("Strawberry") || value.contains("Vanilla")
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
-            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
+            quantity = Integer.parseInt(value.substring(value.length() -
+                    OFFSETTWO,value.length()-OFFSETONE));
             Yeast yeast = new Yeast("Any");
             total -= yeast.itemPrice() * quantity;
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
-            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
+            quantity = Integer.parseInt(value.substring(value.length() -
+                    OFFSETTWO,value.length()-OFFSETONE));
             DonutHole hole = new DonutHole("Any");
             total -= hole.itemPrice() * quantity;
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
-            quantity = Integer.parseInt(value.substring(value.length()-OFFSETTWO,value.length()-OFFSETONE));
+            quantity = Integer.parseInt(value.substring(value.length() -
+                    OFFSETTWO,value.length()-OFFSETONE));
             Cake cake = new Cake("Any");
             total -= cake.itemPrice() * quantity;
         }
         round();
-        runningTotal.setText(total+"");
+        runningTotal.setText(total + "");
     }
 
 
@@ -241,17 +247,21 @@ public class DonutViewController {
     protected void addOrder(){
         if(donuts.size() == EMPTY){
             String errorMessage = "No donuts are selected!";
-            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
-            coffeeFailure.setContentText(errorMessage);
-            coffeeFailure.show();
+            Alert donutFailure = new Alert(Alert.AlertType.ERROR);
+            donutFailure.setContentText(errorMessage);
+            donutFailure.show();
             return;
         }
         for(int i = 0; i < donuts.size(); i++) {
             String type = donuts.get(i);
             order.addItem(type);
         }
+        String orderPlaced = "Donuts added to order!";
+        Alert orderSuccess = new Alert(Alert.AlertType.INFORMATION);
+        orderSuccess.setContentText(orderPlaced);
+        orderSuccess.show();
         order.setPrice(CoffeeViewController.total + total);
-        AllOrders.addOrder(order,uniqueOrder);
+        AllOrders.addOrder(order, uniqueOrder);
         reset();
     }
 

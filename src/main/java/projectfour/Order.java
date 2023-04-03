@@ -95,7 +95,10 @@ public class Order {
 
 
     /**
-     * Rounds a decimal number to two digits.
+     * Round a double number to two digits
+     * @param number The number to be rounded to two digits
+     * @return The updated value for the total price rounded
+     * to two digits
      */
     private double round(double number){
         DecimalFormat df = new DecimalFormat();
