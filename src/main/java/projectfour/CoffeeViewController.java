@@ -29,14 +29,20 @@ public class CoffeeViewController {
         public static double total;
         private static final int uniqueOrder = 0;
         private static final int INITIALSELECT = 0;
-        private static final int DECIDIGITS = 0;
+        private static final int DECIDIGITS = 2;
 
 
         private Order order;
 
         private static final int BEGININDEX = 0;
+        private static final int ZEROTOTAL = 0;
+
 
         private static final int OFFSETINDEX = 1;
+        private static final int QUANTITYONE = 1;
+
+        private static final int FIRSTINDEX = 0;
+
 
         @FXML
         private ComboBox comboBox;
@@ -84,7 +90,7 @@ public class CoffeeViewController {
                 comboBox = new ComboBox();
                 quantitycomboBox = new ComboBox();
                 result = new ListView();
-                total = 0;
+                total = ZEROTOTAL;
                 coffee = FXCollections.observableArrayList();
                 order = new Order(uniqueOrder);
                 initialize();
@@ -97,8 +103,9 @@ public class CoffeeViewController {
         protected void initialize(){
                 comboBox.setValue("Coffee Size");
                 comboBox.setItems(donutList);
+                comboBox.setValue(donutList.get(FIRSTINDEX));
 
-                quantitycomboBox.setValue(1);
+                quantitycomboBox.setValue(QUANTITYONE);
                 quantitycomboBox.setItems(quantityList);
 
                 //flavors.setItems(yeastFlavors);
@@ -171,8 +178,6 @@ public class CoffeeViewController {
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
-                runningTotal.setText(total + "");
-
         }
 
         /**
@@ -180,7 +185,7 @@ public class CoffeeViewController {
          * @return A boolean representing if coffee can be removed
          */
         private boolean canRemoveCoffee(){
-                if((String)result.getSelectionModel().getSelectedItem() == null){
+                if((String) result.getSelectionModel().getSelectedItem() == null){
                         return false;
                 }
                 return true;
@@ -211,8 +216,8 @@ public class CoffeeViewController {
 
                 String value = (String)result.getSelectionModel().getSelectedItem();
                 String sizeOfCoffee = value.substring(BEGININDEX,value.indexOf("("));
-                int quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
-                        value.indexOf(")")));
+                int quantity = Integer.parseInt(value.substring(
+                        value.indexOf("(") + OFFSETINDEX, value.indexOf(")")));
                 String addOns = value.substring(value.indexOf("[") + OFFSETINDEX,
                         value.indexOf("]"));
                 String[] addOnFromOrder = addOns.split(",");
@@ -224,7 +229,6 @@ public class CoffeeViewController {
                 tempCoffee.addaddIn(addons);
                 total -= (tempCoffee.itemPrice()) * quantity;
                 round();
-                runningTotal.setText(total +  "");
                 coffee.remove(value);
         }
 
@@ -283,5 +287,6 @@ public class CoffeeViewController {
                 df.setMaximumFractionDigits(DECIDIGITS);
                 df.setMinimumFractionDigits(DECIDIGITS);
                 total = Double.parseDouble(df.format(total));
+                runningTotal.setText(df.format(total));
         }
 }

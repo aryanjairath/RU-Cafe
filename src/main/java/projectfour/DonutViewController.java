@@ -98,7 +98,7 @@ public class DonutViewController {
             flavors.setItems(yeastFlavors);
             File f = new File("yeast.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETTEN);
+            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -106,7 +106,7 @@ public class DonutViewController {
             flavors.setItems(cakeFlavors);
             File f = new File("cake.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETNINE);
+            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETNINE);
             absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -114,7 +114,7 @@ public class DonutViewController {
             flavors.setItems(donutHoles);
             File f = new File("holes.jpg");
             String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length()-OFFSETTEN);
+            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
             donutImage.setImage(new Image(absolute));
         }
@@ -159,7 +159,6 @@ public class DonutViewController {
         round();
         donuts.add(output);
         result.setItems(donuts);
-        runningTotal.setText(total+"");
     }
 
 
@@ -184,37 +183,36 @@ public class DonutViewController {
                 || value.contains("Blueberry") || value.contains("Apple")
                 || value.contains("Grape") || value.contains("Passionfruit")){
             quantity = Integer.parseInt(value.substring(value.length() -
-                    OFFSETTWO,value.length()-OFFSETONE));
+                    OFFSETTWO,value.length() - OFFSETONE));
             Yeast yeast = new Yeast("Any");
             total -= yeast.itemPrice() * quantity;
         }
         if(value.contains("French") || value.contains("Original")
                 || value.contains("Powder")){
             quantity = Integer.parseInt(value.substring(value.length() -
-                    OFFSETTWO,value.length()-OFFSETONE));
+                    OFFSETTWO,value.length() - OFFSETONE));
             DonutHole hole = new DonutHole("Any");
             total -= hole.itemPrice() * quantity;
         }
         if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
                 || value.contains("Cheese Cake")){
             quantity = Integer.parseInt(value.substring(value.length() -
-                    OFFSETTWO,value.length()-OFFSETONE));
+                    OFFSETTWO,value.length() - OFFSETONE));
             Cake cake = new Cake("Any");
             total -= cake.itemPrice() * quantity;
         }
         round();
-        runningTotal.setText(total + "");
     }
 
 
     /**
      * Rounds a given decimal to two decimal places
-     * @return a rounded price.
      */
     private void round(){
         DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(TWODIGITS);
         df.setMinimumFractionDigits(TWODIGITS);
+        df.setMaximumFractionDigits(TWODIGITS);
+        runningTotal.setText(df.format(total));
         total = Double.parseDouble(df.format(total));
     }
 
