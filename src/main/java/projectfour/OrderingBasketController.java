@@ -29,7 +29,7 @@ public class OrderingBasketController {
 
     @FXML
     private ListView items;
-    private static double TAXRATE = .0625;
+    private static double TAXRATE = .06625;
     private static double ZEROTOTAL = 0;
 
     private static int SIZEINDEX = 1;
@@ -54,14 +54,10 @@ public class OrderingBasketController {
         if(list.size() == EMPTY){
             return;
         }
-        double amount = round(list.get(list.size() - SIZEINDEX).getPrice());
-        subtotal.setText(amount + "");
+        subtotal.setText(round(list.get(list.size() - SIZEINDEX).getPrice()));
         double taxAmt = list.get(list.size() - SIZEINDEX).getPrice() * TAXRATE;
-        taxAmt = round(taxAmt);
-        tax.setText(taxAmt + "");
-        double finalAmt = taxAmt + list.get(list.size() - SIZEINDEX).getPrice();
-        finalAmt = round(finalAmt);
-        amountdue.setText(finalAmt + "");
+        tax.setText(round(taxAmt));
+        amountdue.setText(round(taxAmt + list.get(list.size() - SIZEINDEX).getPrice()) + "");
         ArrayList<Order> orders = AllOrders.allOrderR();
         ArrayList<String> order = orders.get(orders.size() - SIZEINDEX).getMenuItems();
         for(int i  = 0; i < order.size(); i++)
@@ -75,12 +71,13 @@ public class OrderingBasketController {
      * @param amount The value to round to two decimals
      * @return The rounded double value
      */
-    private double round(double amount){
+    private String round(double amount){
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(TWODIGITS);
         df.setMinimumFractionDigits(TWODIGITS);
+        String val = df.format(amount);
         amount = Double.parseDouble(df.format(amount));
-        return amount;
+        return val;
     }
 
     /**
@@ -127,8 +124,16 @@ public class OrderingBasketController {
             String sizeOfCoffee = value.substring(START,value.indexOf("("));
             quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
                     value.indexOf(")")));
-            int numberOfAddons = Integer.parseInt(
-                    value.substring(value.indexOf(":") + OFFSETINDEX,value.indexOf(".")));
+            int numberOfAddons = 0;
+            if(!value.contains("["))
+                numberOfAddons = 0;
+            else{
+                numberOfAddons+=1;
+                for(int i = 0 ; i < value.length(); i++){
+                    if(value.charAt(i) == ',')
+                        numberOfAddons++;
+                }
+            }
             Coffee tempCoffee = new Coffee(sizeOfCoffee);
             ArrayList<String> addons = new ArrayList<String>();
             for(int i = 0; i < numberOfAddons; i++){
@@ -137,8 +142,8 @@ public class OrderingBasketController {
             tempCoffee.addaddIn(addons);
             amt = Double.parseDouble(subtotal.getText()) - tempCoffee.itemPrice() * quantity;
         }
-        amt = round(amt);
-        list.get(list.size() - SIZEINDEX).setPrice(amt);
+
+        list.get(list.size() - SIZEINDEX).setPrice(Double.parseDouble(round(amt)));
         revealPricing();
     }
 
@@ -169,6 +174,7 @@ public class OrderingBasketController {
         }
         AllOrders.addStoreOrder(order.getOrderNumber());
         AllOrders.allOrder = new ArrayList<>();
+        AllOrders.runningTotal = 0;
         DonutViewController.setTotal(ZEROTOTAL);
         CoffeeViewController.setTotal(ZEROTOTAL);
         AllOrders.incrementUnique();

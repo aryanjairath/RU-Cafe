@@ -79,7 +79,7 @@ public class Order {
      * @return A double representing the total price of the
      * order
      */
-    public double totalPrice(){
+    public String totalPrice(){
         return round(getPrice() * TAXAMOUNT);
     }
 
@@ -100,12 +100,11 @@ public class Order {
      * @return The updated value for the total price rounded
      * to two digits
      */
-    private double round(double number){
+    private String round(double number){
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(DIGITS);
         df.setMinimumFractionDigits(DIGITS);
-        number = Double.parseDouble(df.format(number));
-        return number;
+        return df.format(number);
     }
 
     /**

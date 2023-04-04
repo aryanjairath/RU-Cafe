@@ -36,6 +36,7 @@ public class CoffeeViewController {
 
         private static final int BEGININDEX = 0;
         private static final int ZEROTOTAL = 0;
+        private static final int EMPTY = 0;
 
 
         private static final int OFFSETINDEX = 1;
@@ -174,7 +175,10 @@ public class CoffeeViewController {
                 ArrayList<String> addOns = getAddons();
                 coffeeOrder.addaddIn(addOns);
                 int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
-                coffee.add(size + "(" + quantity + ")" + " Addons: " +  addOns.toString()+ ".");
+                if(addOns.size() == EMPTY)
+                        coffee.add(size + "(" + quantity + ").");
+                else
+                        coffee.add(size + "(" + quantity + ")" + " Addons: " +  addOns.toString()+ ".");
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
@@ -252,13 +256,10 @@ public class CoffeeViewController {
                         String type = coffee.get(i);
                         order.addItem(type);
                 }
-                order.setPrice(DonutViewController.getTotal() + total);
+                AllOrders.runningTotal += total;
+                order.setPrice(AllOrders.runningTotal);
                 AllOrders.addOrder(order, uniqueOrder);
                 reset();
-        }
-
-        public static double getTotal(){
-                return total;
         }
 
         /**

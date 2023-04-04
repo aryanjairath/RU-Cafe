@@ -228,16 +228,6 @@ public class DonutViewController {
 
 
     /**
-     * This method gives access to total cost field of donut.
-     * @return A double value representing the total donut view
-     * cost.
-     */
-    public static double getTotal(){
-        return total;
-    }
-
-
-    /**
      * This method performs actions when the add to order button
      * is pressed; checks if donut can be added at all.
      */
@@ -258,7 +248,8 @@ public class DonutViewController {
         Alert orderSuccess = new Alert(Alert.AlertType.INFORMATION);
         orderSuccess.setContentText(orderPlaced);
         orderSuccess.show();
-        order.setPrice(CoffeeViewController.total + total);
+        AllOrders.runningTotal += total;
+        order.setPrice(AllOrders.runningTotal);
         AllOrders.addOrder(order, uniqueOrder);
         reset();
     }

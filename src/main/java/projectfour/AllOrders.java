@@ -13,7 +13,7 @@ public class AllOrders {
     public static ArrayList<Order> storeOrders = new ArrayList<>();
 
     public static int uniqueNumber = 1;
-    public static int OFFSETONE = 1;
+    public static double runningTotal = 0;
 
 
     /**
@@ -45,7 +45,7 @@ public class AllOrders {
      * @param index The place at which the order is inserted
      */
     public static void addStoreOrder(int index){
-        Order orderToAdd = allOrder.get(allOrder.size() - OFFSETONE);
+        Order orderToAdd = allOrder.get(0);
         orderToAdd.setOrderNumber(AllOrders.getUniqueNumber());
         storeOrders.add(orderToAdd);
     }
