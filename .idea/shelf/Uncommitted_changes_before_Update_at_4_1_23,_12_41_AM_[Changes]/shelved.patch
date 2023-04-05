@@ -1,0 +1,174 @@
+Index: src/main/java/projectfour/OrderMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package projectfour;\n\nimport javafx.scene.control.ListView;\nimport javafx.collections.FXCollections;\nimport javafx.collections.ObservableList;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.ListView;\nimport javafx.scene.control.TextArea;\nimport javafx.scene.control.TextField;\n\nimport java.io.FileWriter;\nimport java.io.IOException;\nimport java.text.DecimalFormat;\nimport java.util.ArrayList;\n\npublic class OrderMenuController {\n\n    @FXML\n    private ListView resultView;\n\n    @FXML\n    private TextField runningTotal;\n\n    private static int SIZEINDEX = 1;\n\n    private ObservableList<String> orderList;\n\n    private static int BEGININDEX = 0;\n\n    private static int ENDINDEX = 1;\n\n    @FXML\n    public void showAllOrders(){\n\n        ArrayList<Order> orderList = AllOrders.allStoreOrders();\n        System.out.println(orderList);\n        if(orderList.size() != 0){\n            ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();\n            this.orderList = FXCollections.observableArrayList();\n\n            for(int i = 0; i < orderList.size(); i++){\n                this.orderList.add(orderList.get(i).toString());\n            }\n        }else{\n            ArrayList<String> list = new ArrayList<String>();\n        }\n        this.resultView.setItems(this.orderList);\n    }\n\n    /**\n     * Rounds a given decimal to two decimal places\n     * @param amount a double representing a price.\n     * @return a rounded price.\n     */\n\n    private double round(double amount){\n        DecimalFormat df = new DecimalFormat();\n        df.setMaximumFractionDigits(2);\n        df.setMinimumFractionDigits(2);\n        amount = Double.parseDouble(df.format(amount));\n        return amount;\n    }\n\n\n    /**\n     * Removes an item from the ordering list, given access to various element from the UI.\n     */\n\n    @FXML\n    private void removeItem(){\n        int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()\n                .getSelectedItem()).substring(BEGININDEX,ENDINDEX)) - ENDINDEX;\n        String order = ((String) this.resultView.getSelectionModel()\n                .getSelectedItem()).substring(BEGININDEX,ENDINDEX);\n        AllOrders.removeOrderedItem(orderNumber);\n        this.orderList.remove(orderNumber);\n        System.out.println(this.orderList);\n        this.resultView.setItems(this.orderList);\n    }\n\n\n    /**\n     * Writes orders to a text file.\n     * @throws IOException, if the file is not found.\n     */\n\n\n    @FXML\n    public void exportToTextFile() throws IOException {\n        FileWriter writer = new FileWriter(\"output.txt\");\n        for(String str: this.orderList) {\n            writer.write(str + System.lineSeparator());\n        }\n        writer.close();\n    }\n\n\n\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/projectfour/OrderMenuController.java b/src/main/java/projectfour/OrderMenuController.java
+--- a/src/main/java/projectfour/OrderMenuController.java	(revision 0adb23d2d9799253c5b96480b2f22ee215650196)
++++ b/src/main/java/projectfour/OrderMenuController.java	(date 1680324070892)
+@@ -1,12 +1,10 @@
+ package projectfour;
+ 
+-import javafx.scene.control.ListView;
++import javafx.scene.control.*;
+ import javafx.collections.FXCollections;
+ import javafx.collections.ObservableList;
+ import javafx.fxml.FXML;
+ import javafx.scene.control.ListView;
+-import javafx.scene.control.TextArea;
+-import javafx.scene.control.TextField;
+ 
+ import java.io.FileWriter;
+ import java.io.IOException;
+@@ -29,10 +27,19 @@
+ 
+     private static int ENDINDEX = 1;
+ 
++    /**
++     * Writes all orders to the screen in the order menu controller.
++     */
+     @FXML
+     public void showAllOrders(){
+-
+         ArrayList<Order> orderList = AllOrders.allStoreOrders();
++        if(orderList.size() == BEGININDEX){
++            String errorMessage = "No Orders to load!";
++            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
++            coffeeFailure.setContentText(errorMessage);
++            coffeeFailure.show();
++            return;
++        }
+         System.out.println(orderList);
+         if(orderList.size() != 0){
+             ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();
+@@ -68,10 +75,22 @@
+ 
+     @FXML
+     private void removeItem(){
++        ArrayList<Order> orderList = AllOrders.allStoreOrders();
++        if(orderList.size() == BEGININDEX || this.orderList.size() == BEGININDEX){
++            String errorMessage = "No orders to remove!";
++            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
++            coffeeFailure.setContentText(errorMessage);
++            coffeeFailure.show();
++            return;
++        }
++        String order = ((String) this.resultView.getSelectionModel()
++                .getSelectedItem());
++        System.out.println(order.indexOf(":") + ENDINDEX);
++        System.out.println(order.indexOf(":") + ENDINDEX + ENDINDEX);
+         int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
+-                .getSelectedItem()).substring(BEGININDEX,ENDINDEX)) - ENDINDEX;
+-        String order = ((String) this.resultView.getSelectionModel()
+-                .getSelectedItem()).substring(BEGININDEX,ENDINDEX);
++                .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
++                order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;
++
+         AllOrders.removeOrderedItem(orderNumber);
+         this.orderList.remove(orderNumber);
+         System.out.println(this.orderList);
+@@ -87,10 +106,24 @@
+ 
+     @FXML
+     public void exportToTextFile() throws IOException {
++        ArrayList<Order> orderList = AllOrders.allStoreOrders();
++
++        if(orderList.size() == BEGININDEX || this.orderList.size() == BEGININDEX){
++            String errorMessage = "No Orders to save!";
++            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
++            coffeeFailure.setContentText(errorMessage);
++            coffeeFailure.show();
++            return;
++        }
+         FileWriter writer = new FileWriter("output.txt");
+         for(String str: this.orderList) {
+             writer.write(str + System.lineSeparator());
+         }
++
++        String errorMessage = "Orders added to output.txt in main directory!";
++        Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
++        coffeeFailure.setContentText(errorMessage);
++        coffeeFailure.show();
+         writer.close();
+     }
+ 
+Index: src/main/java/projectfour/Order.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package projectfour;\n\nimport java.text.DecimalFormat;\nimport java.util.ArrayList;\n\npublic class Order {\n\n    private int orderNumber;\n    private ArrayList<String> menuItems;\n    private double price;\n\n    private static double TAXAMOUNT = 1.06625;\n    public Order(int orderNumber){\n        this.orderNumber = orderNumber;\n        menuItems = new ArrayList<String>();\n        price = 0;\n    }\n\n    public void addItem(String item){\n        menuItems.add(item);\n    }\n\n    public void removeitem(String item){\n        menuItems.remove(item);\n    }\n\n    public ArrayList<String> getMenuItems(){\n        return menuItems;\n    }\n\n    public void setPrice(double price){\n        this.price = price;\n    }\n    public double getPrice(){\n        return this.price;\n    }\n\n    public double totalPrice(){\n        return round(getPrice() * TAXAMOUNT);\n    }\n    public String toString(){\n        return getOrderNumber() + \" \" + this.getMenuItems().toString() + \" Price: \" + totalPrice();\n\n    }\n\n    /**\n     * Rounds a decimal number to two digits.\n     */\n\n    private double round(double number){\n        DecimalFormat df = new DecimalFormat();\n        df.setMaximumFractionDigits(2);\n        df.setMinimumFractionDigits(2);\n        number = Double.parseDouble(df.format(number));\n        return number;\n    }\n\n    public int getOrderNumber(){\n        return this.orderNumber;\n    }\n\n    public void setOrderNumber(int orderNumber){\n        this.orderNumber = orderNumber;\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/projectfour/Order.java b/src/main/java/projectfour/Order.java
+--- a/src/main/java/projectfour/Order.java	(revision 0adb23d2d9799253c5b96480b2f22ee215650196)
++++ b/src/main/java/projectfour/Order.java	(date 1680323551934)
+@@ -39,7 +39,8 @@
+         return round(getPrice() * TAXAMOUNT);
+     }
+     public String toString(){
+-        return getOrderNumber() + " " + this.getMenuItems().toString() + " Price: " + totalPrice();
++        return "Order number: " + getOrderNumber() + " "
++                + this.getMenuItems().toString() + " Price: " + totalPrice();
+ 
+     }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"87c095c3-db3b-4a69-8149-792cabb811f1\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/Donut.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/Donut.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/Order.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/Order.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2NKefHsZ6dp0XA2bj3QpjZwOLEG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;app.teamhub.trackedBranches&quot;: &quot;1g3us7n/master&quot;,\n    &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/CS_213_Project_2&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\\src\\main\\resources\\projectfour\" />\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\\src\\main\\java\\projectfour\" />\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Application.Main\">\n    <configuration name=\"CoffeeView\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.CoffeeView\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.HelloApplication\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.Main\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"MainView\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.MainView\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"OrderingBasketView\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.OrderingBasketView\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n        <item itemvalue=\"Application.OrderingBasketView\" />\n        <item itemvalue=\"Application.CoffeeView\" />\n        <item itemvalue=\"Application.MainView\" />\n        <item itemvalue=\"Application.HelloApplication\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"87c095c3-db3b-4a69-8149-792cabb811f1\" name=\"Changes\" comment=\"\" />\n      <created>1679417304332</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1679417304332</updated>\n      <workItem from=\"1679896743896\" duration=\"2176000\" />\n      <workItem from=\"1680240933009\" duration=\"480000\" />\n      <workItem from=\"1680241583515\" duration=\"258000\" />\n      <workItem from=\"1680241928616\" duration=\"3015000\" />\n      <workItem from=\"1680283710073\" duration=\"10402000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <created>1679417476132</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679417476132</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"setting up files\">\n      <created>1679435534498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679435534498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"setting up files\">\n      <created>1679435569232</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679435569232</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"basic implementation\">\n      <created>1679453530802</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679453530802</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"setup\">\n      <created>1679503156033</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679503156033</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"MainView added\">\n      <created>1679512454850</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679512454850</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"added donut functionality (small tweaks needed)\">\n      <created>1679596797814</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679596797814</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"added donut functionality (small tweaks needed)\">\n      <created>1679598877448</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679598877448</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"added ordering basket and some views (needs logic fixes)\">\n      <created>1679769485914</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679769485914</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"added files\">\n      <created>1679955150971</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679955150971</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"fixed pictures, removed exception\">\n      <created>1679975067893</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679975067893</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"completed donut(mostly)\">\n      <created>1680194025295</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680194025295</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"store orders menu\">\n      <created>1680283865427</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680283865427</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"14\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"setting up files\" />\n    <MESSAGE value=\"basic implementation\" />\n    <MESSAGE value=\"setup\" />\n    <MESSAGE value=\"MainView added\" />\n    <MESSAGE value=\"added donut functionality (small tweaks needed)\" />\n    <MESSAGE value=\"added ordering basket and some views (needs logic fixes)\" />\n    <MESSAGE value=\"added files\" />\n    <MESSAGE value=\"fixed pictures, removed exception\" />\n    <MESSAGE value=\"completed donut(mostly)\" />\n    <MESSAGE value=\"store orders menu\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"store orders menu\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0adb23d2d9799253c5b96480b2f22ee215650196)
++++ b/.idea/workspace.xml	(date 1680324071098)
+@@ -6,12 +6,8 @@
+   <component name="ChangeListManager">
+     <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Donut.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Order.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -144,7 +140,7 @@
+       <workItem from="1680240933009" duration="480000" />
+       <workItem from="1680241583515" duration="258000" />
+       <workItem from="1680241928616" duration="3015000" />
+-      <workItem from="1680283710073" duration="10402000" />
++      <workItem from="1680283710073" duration="11744000" />
+     </task>
+     <task id="LOCAL-00001" summary="initial commit">
+       <created>1679417476132</created>
+@@ -237,7 +233,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680283865427</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="finish order menu controller">
++      <created>1680322786515</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1680322786515</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -255,6 +258,7 @@
+     <MESSAGE value="fixed pictures, removed exception" />
+     <MESSAGE value="completed donut(mostly)" />
+     <MESSAGE value="store orders menu" />
+-    <option name="LAST_COMMIT_MESSAGE" value="store orders menu" />
++    <MESSAGE value="finish order menu controller" />
++    <option name="LAST_COMMIT_MESSAGE" value="finish order menu controller" />
+   </component>
+ </project>
+\ No newline at end of file

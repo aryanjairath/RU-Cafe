@@ -1,0 +1,470 @@
+Index: src/main/resources/projectfour/DonutView.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.geometry.*?>\n<?import javafx.scene.control.*?>\n<?import javafx.scene.layout.*?>\n<?import javafx.scene.text.*?>\n\n<AnchorPane minHeight=\"500.0\" prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/17.0.2-ea\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"projectfour.CoffeeViewController\">\n   <children>\n      <TextField fx:id=\"runningTotal\" translateX=\"200.0\" translateY=\"420.0\" />\n      <ComboBox fx:id=\"comboBox\" layoutX=\"14.0\" layoutY=\"88.0\" onAction=\"#selectedValue\" prefHeight=\"28.0\" prefWidth=\"113.0\" promptText=\"Yeast Donut\" translateY=\"-200.0\" visibleRowCount=\"5\" AnchorPane.bottomAnchor=\"284.0\">\n         <opaqueInsets>\n            <Insets />\n         </opaqueInsets></ComboBox>\n      <Label text=\"Ordering Donuts\">\n         <font>\n            <Font size=\"36.0\" />\n         </font>\n         <opaqueInsets>\n            <Insets />\n         </opaqueInsets>\n         <padding>\n            <Insets left=\"175.0\" top=\"20.0\" />\n         </padding>\n      </Label>\n      <ComboBox fx:id=\"quantitycomboBox\" layoutX=\"242.0\" layoutY=\"255.0\" prefHeight=\"25.0\" prefWidth=\"58.0\" />\n      <ListView fx:id=\"flavors\" layoutX=\"27.0\" layoutY=\"192.0\" prefHeight=\"200.0\" prefWidth=\"200.0\" translateX=\"-15.0\" />\n      <Button fx:id=\"add\" mnemonicParsing=\"false\" onAction=\"#addDonut\" text=\"Add\" translateX=\"253.0\" translateY=\"300.0\" />\n      <Button fx:id=\"remove\" mnemonicParsing=\"false\" onAction=\"#onRemove\" text=\"Remove\" translateX=\"245.0\" translateY=\"350.0\" />\n      <ListView fx:id=\"result\" prefHeight=\"200.0\" prefWidth=\"200.0\" translateX=\"340.0\" translateY=\"200.0\" />\n      <Button mnemonicParsing=\"false\" onAction=\"#addOrder\" text=\"Add to Order\" translateX=\"440.0\" translateY=\"420.0\" />\n      <Label layoutX=\"160.0\" layoutY=\"420.0\" text=\"Total\">\n         <font>\n            <Font size=\"15.0\" />\n         </font>\n      </Label>\n   </children>\n</AnchorPane>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/projectfour/DonutView.fxml b/src/main/resources/projectfour/DonutView.fxml
+--- a/src/main/resources/projectfour/DonutView.fxml	(revision 790f1d6491524218777dd8b094095542e979d0e3)
++++ b/src/main/resources/projectfour/DonutView.fxml	(date 1679639804231)
+@@ -5,14 +5,14 @@
+ <?import javafx.scene.layout.*?>
+ <?import javafx.scene.text.*?>
+ 
+-<AnchorPane minHeight="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.CoffeeViewController">
++<AnchorPane minHeight="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.DonutViewController">
+    <children>
+       <TextField fx:id="runningTotal" translateX="200.0" translateY="420.0" />
+       <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="88.0" onAction="#selectedValue" prefHeight="28.0" prefWidth="113.0" promptText="Yeast Donut" translateY="-200.0" visibleRowCount="5" AnchorPane.bottomAnchor="284.0">
+          <opaqueInsets>
+             <Insets />
+          </opaqueInsets></ComboBox>
+-      <Label text="Ordering Donuts">
++      <Label layoutX="67.0" layoutY="53.0" text="Ordering Donuts ">
+          <font>
+             <Font size="36.0" />
+          </font>
+Index: src/main/java/projectfour/CoffeeViewController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package projectfour;\n\nimport javafx.collections.FXCollections;\nimport javafx.collections.ObservableList;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.Button;\nimport javafx.scene.control.ComboBox;\nimport javafx.scene.control.ListView;\nimport javafx.scene.control.TextField;\n\nimport java.text.DecimalFormat;\n\npublic class CoffeeViewController {\n        ObservableList<String> donutList =\n                FXCollections.observableArrayList(\"Yeast Donut\", \"Cake Donut\", \"Hole Donut\");\n        ObservableList<Integer> quantityList =\n                FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);\n\n        ObservableList<String> yeastFlavors =\n                FXCollections.observableArrayList(\"Strawberry\", \"Vanilla\", \"Blueberry\",\n                        \"Apple\", \"Grape\",\"Passionfruit\");\n\n        ObservableList<String> cakeFlavors =\n                FXCollections.observableArrayList(\"Birthday Cake\", \"Chocolate Cake\",\n                        \"Cheese Cake\");\n\n        ObservableList<String> donutHoles =\n                FXCollections.observableArrayList(\"French\", \"Original\",\n                        \"Powder\");\n        ObservableList<String> donuts;\n\n        private double total;\n        private int uniqueOrder = 0;\n\n        private Order order;\n\n\n        @FXML\n        private ComboBox comboBox;\n\n        @FXML\n        private ComboBox quantitycomboBox;\n\n        @FXML\n        private ListView flavors;\n\n        @FXML\n        private ListView result;\n\n        @FXML\n        private Button add;\n\n        @FXML\n        private TextField runningTotal;\n        public CoffeeViewController(){\n                comboBox = new ComboBox();\n                quantitycomboBox = new ComboBox();\n                flavors = new ListView();\n                total = 0;\n                donuts = FXCollections.observableArrayList();\n                initialize();\n        }\n\n        @FXML\n        protected void initialize(){\n                comboBox.setValue(\"Yeast Donut\");\n                comboBox.setItems(donutList);\n\n                quantitycomboBox.setValue(1);\n                quantitycomboBox.setItems(quantityList);\n\n                flavors.setItems(yeastFlavors);\n\n        }\n\n        @FXML\n        protected void selectedValue(){\n                if(comboBox.getValue().equals(\"Yeast Donut\")){\n                        flavors.setItems(yeastFlavors);\n                }\n                if(comboBox.getValue().equals(\"Cake Donut\"))\n                        flavors.setItems(cakeFlavors);\n                if(comboBox.getValue().equals(\"Hole Donut\"))\n                        flavors.setItems(donutHoles);\n        }\n\n        @FXML\n        protected void addDonut(){\n                String donutType = (String)comboBox.getSelectionModel().getSelectedItem();\n                String flavor = (String)flavors.getSelectionModel().getSelectedItem();\n                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();\n                if(donutType.equals(\"Yeast Donut\")){\n                        Yeast yeast = new Yeast(flavor);\n                        total += yeast.itemPrice()*quantity;\n                }\n                if(donutType.equals(\"Cake Donut\")){\n                        Cake cake = new Cake(flavor);\n                        total += cake.itemPrice()*quantity;\n                }\n                if(donutType.equals(\"Hole Donut\")){\n                        DonutHole hole = new DonutHole(flavor);\n                        total += hole.itemPrice()*quantity;\n                }\n                String output = \"\";\n                if(flavor != null)\n                        output = (flavor+\"(\"+quantity+\")\");\n                else\n                        return;\n                round();\n                donuts.add(output);\n                result.setItems(donuts);\n                runningTotal.setText(total+\"\");\n        }\n\n        @FXML\n        protected void onRemove(){\n                String value = (String)result.getSelectionModel().getSelectedItem();\n                donuts.remove(value);\n                int quantity;\n                if(value.contains(\"Strawberry\") || value.contains(\"Vanilla\")\n                        || value.contains(\"Blueberry\") || value.contains(\"Apple\")\n                        || value.contains(\"Grape\") || value.contains(\"Passionfruit\")){\n                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));\n                        Yeast yeast = new Yeast(\"Any\");\n                        total -= yeast.itemPrice() * quantity;\n                }\n                if(value.contains(\"French\") || value.contains(\"Original\")\n                        || value.contains(\"Powder\")){\n                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));\n                        DonutHole hole = new DonutHole(\"Any\");\n                        total -= hole.itemPrice() * quantity;\n                }\n                if(value.contains(\"Birthday Cake\") || value.contains(\"Chocolate Cake\")\n                        || value.contains(\"Cheese Cake\")){\n                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));\n                        Cake cake = new Cake(\"Any\");\n                        total -= cake.itemPrice() * quantity;\n                }\n                round();\n                runningTotal.setText(total+\"\");\n\n\n        }\n        private void round(){\n                DecimalFormat df = new DecimalFormat();\n                df.setMaximumFractionDigits(2);\n                df.setMinimumFractionDigits(2);\n                total = Double.parseDouble(df.format(total));\n        }\n\n        private MenuItem findItem(String value){\n                if(value.contains(\"Strawberry\") || value.contains(\"Vanilla\")\n                        || value.contains(\"Blueberry\") || value.contains(\"Apple\")\n                        || value.contains(\"Grape\") || value.contains(\"Passionfruit\")){\n                        Yeast yeast = new Yeast(value);\n                        return yeast;\n                }\n                if(value.contains(\"French\") || value.contains(\"Original\")\n                        || value.contains(\"Powder\")){\n                        DonutHole hole = new DonutHole(value);\n                        return hole;\n                }\n                if(value.contains(\"Birthday Cake\") || value.contains(\"Chocolate Cake\")\n                        || value.contains(\"Cheese Cake\")){\n                        Cake cake = new Cake(value);\n                        return cake;\n                }\n                return null;\n        }\n        @FXML\n        protected void addOrder(){\n                order = new Order(uniqueOrder);\n                uniqueOrder++;\n                if(donuts.size() == 0)\n                        return;\n                for(int i = 0; i < donuts.size(); i++) {\n                        String type = donuts.get(i);\n                        order.addItem(type);\n                }\n                order.printOrder();\n                reset();\n\n        }\n\n        private void reset(){\n                initialize();\n                order = new Order(uniqueOrder);\n                donuts = FXCollections.observableArrayList();\n                result.setItems(donuts);\n                quantitycomboBox.setValue(1);\n                total = 0;\n                runningTotal.setText(\"\");\n\n        }\n        private boolean checkAdd(){\n\n                return true;\n        }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/projectfour/CoffeeViewController.java b/src/main/java/projectfour/CoffeeViewController.java
+--- a/src/main/java/projectfour/CoffeeViewController.java	(revision 790f1d6491524218777dd8b094095542e979d0e3)
++++ b/src/main/java/projectfour/CoffeeViewController.java	(date 1679639910963)
+@@ -11,24 +11,11 @@
+ import java.text.DecimalFormat;
+ 
+ public class CoffeeViewController {
+-        ObservableList<String> donutList =
+-                FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Hole Donut");
++        ObservableList<String>  sizeList =
++                FXCollections.observableArrayList("Small Size", "Medium Size", "Large Size");
+         ObservableList<Integer> quantityList =
+                 FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+-        ObservableList<String> yeastFlavors =
+-                FXCollections.observableArrayList("Strawberry", "Vanilla", "Blueberry",
+-                        "Apple", "Grape","Passionfruit");
+-
+-        ObservableList<String> cakeFlavors =
+-                FXCollections.observableArrayList("Birthday Cake", "Chocolate Cake",
+-                        "Cheese Cake");
+-
+-        ObservableList<String> donutHoles =
+-                FXCollections.observableArrayList("French", "Original",
+-                        "Powder");
+-        ObservableList<String> donuts;
+-
+         private double total;
+         private int uniqueOrder = 0;
+ 
+@@ -52,148 +39,148 @@
+ 
+         @FXML
+         private TextField runningTotal;
+-        public CoffeeViewController(){
+-                comboBox = new ComboBox();
+-                quantitycomboBox = new ComboBox();
+-                flavors = new ListView();
+-                total = 0;
+-                donuts = FXCollections.observableArrayList();
+-                initialize();
+-        }
+-
+-        @FXML
+-        protected void initialize(){
+-                comboBox.setValue("Yeast Donut");
+-                comboBox.setItems(donutList);
+-
+-                quantitycomboBox.setValue(1);
+-                quantitycomboBox.setItems(quantityList);
+-
+-                flavors.setItems(yeastFlavors);
+-
+-        }
+-
+-        @FXML
+-        protected void selectedValue(){
+-                if(comboBox.getValue().equals("Yeast Donut")){
+-                        flavors.setItems(yeastFlavors);
+-                }
+-                if(comboBox.getValue().equals("Cake Donut"))
+-                        flavors.setItems(cakeFlavors);
+-                if(comboBox.getValue().equals("Hole Donut"))
+-                        flavors.setItems(donutHoles);
+-        }
+-
+-        @FXML
+-        protected void addDonut(){
+-                String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
+-                String flavor = (String)flavors.getSelectionModel().getSelectedItem();
+-                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
+-                if(donutType.equals("Yeast Donut")){
+-                        Yeast yeast = new Yeast(flavor);
+-                        total += yeast.itemPrice()*quantity;
+-                }
+-                if(donutType.equals("Cake Donut")){
+-                        Cake cake = new Cake(flavor);
+-                        total += cake.itemPrice()*quantity;
+-                }
+-                if(donutType.equals("Hole Donut")){
+-                        DonutHole hole = new DonutHole(flavor);
+-                        total += hole.itemPrice()*quantity;
+-                }
+-                String output = "";
+-                if(flavor != null)
+-                        output = (flavor+"("+quantity+")");
+-                else
+-                        return;
+-                round();
+-                donuts.add(output);
+-                result.setItems(donuts);
+-                runningTotal.setText(total+"");
+-        }
+-
+-        @FXML
+-        protected void onRemove(){
+-                String value = (String)result.getSelectionModel().getSelectedItem();
+-                donuts.remove(value);
+-                int quantity;
+-                if(value.contains("Strawberry") || value.contains("Vanilla")
+-                        || value.contains("Blueberry") || value.contains("Apple")
+-                        || value.contains("Grape") || value.contains("Passionfruit")){
+-                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+-                        Yeast yeast = new Yeast("Any");
+-                        total -= yeast.itemPrice() * quantity;
+-                }
+-                if(value.contains("French") || value.contains("Original")
+-                        || value.contains("Powder")){
+-                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+-                        DonutHole hole = new DonutHole("Any");
+-                        total -= hole.itemPrice() * quantity;
+-                }
+-                if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
+-                        || value.contains("Cheese Cake")){
+-                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
+-                        Cake cake = new Cake("Any");
+-                        total -= cake.itemPrice() * quantity;
+-                }
+-                round();
+-                runningTotal.setText(total+"");
+-
+-
+-        }
+-        private void round(){
+-                DecimalFormat df = new DecimalFormat();
+-                df.setMaximumFractionDigits(2);
+-                df.setMinimumFractionDigits(2);
+-                total = Double.parseDouble(df.format(total));
+-        }
+-
+-        private MenuItem findItem(String value){
+-                if(value.contains("Strawberry") || value.contains("Vanilla")
+-                        || value.contains("Blueberry") || value.contains("Apple")
+-                        || value.contains("Grape") || value.contains("Passionfruit")){
+-                        Yeast yeast = new Yeast(value);
+-                        return yeast;
+-                }
+-                if(value.contains("French") || value.contains("Original")
+-                        || value.contains("Powder")){
+-                        DonutHole hole = new DonutHole(value);
+-                        return hole;
+-                }
+-                if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
+-                        || value.contains("Cheese Cake")){
+-                        Cake cake = new Cake(value);
+-                        return cake;
+-                }
+-                return null;
+-        }
+-        @FXML
+-        protected void addOrder(){
+-                order = new Order(uniqueOrder);
+-                uniqueOrder++;
+-                if(donuts.size() == 0)
+-                        return;
+-                for(int i = 0; i < donuts.size(); i++) {
+-                        String type = donuts.get(i);
+-                        order.addItem(type);
+-                }
+-                order.printOrder();
+-                reset();
+-
+-        }
+-
+-        private void reset(){
+-                initialize();
+-                order = new Order(uniqueOrder);
+-                donuts = FXCollections.observableArrayList();
+-                result.setItems(donuts);
+-                quantitycomboBox.setValue(1);
+-                total = 0;
+-                runningTotal.setText("");
+-
+-        }
+-        private boolean checkAdd(){
+-
+-                return true;
+-        }
++//        public CoffeeViewController(){
++//                comboBox = new ComboBox();
++//                quantitycomboBox = new ComboBox();
++//                flavors = new ListView();
++//                total = 0;
++//                donuts = FXCollections.observableArrayList();
++//                initialize();
++//        }
++//
++//        @FXML
++//        protected void initialize(){
++//                comboBox.setValue("Yeast Donut");
++//                comboBox.setItems(donutList);
++//
++//                quantitycomboBox.setValue(1);
++//                quantitycomboBox.setItems(quantityList);
++//
++//                flavors.setItems(yeastFlavors);
++//
++//        }
++//
++//        @FXML
++//        protected void selectedValue(){
++//                if(comboBox.getValue().equals("Yeast Donut")){
++//                        flavors.setItems(yeastFlavors);
++//                }
++//                if(comboBox.getValue().equals("Cake Donut"))
++//                        flavors.setItems(cakeFlavors);
++//                if(comboBox.getValue().equals("Hole Donut"))
++//                        flavors.setItems(donutHoles);
++//        }
++//
++//        @FXML
++//        protected void addDonut(){
++//                String donutType = (String)comboBox.getSelectionModel().getSelectedItem();
++//                String flavor = (String)flavors.getSelectionModel().getSelectedItem();
++//                int quantity = (int)quantitycomboBox.getSelectionModel().getSelectedItem();
++//                if(donutType.equals("Yeast Donut")){
++//                        Yeast yeast = new Yeast(flavor);
++//                        total += yeast.itemPrice()*quantity;
++//                }
++//                if(donutType.equals("Cake Donut")){
++//                        Cake cake = new Cake(flavor);
++//                        total += cake.itemPrice()*quantity;
++//                }
++//                if(donutType.equals("Hole Donut")){
++//                        DonutHole hole = new DonutHole(flavor);
++//                        total += hole.itemPrice()*quantity;
++//                }
++//                String output = "";
++//                if(flavor != null)
++//                        output = (flavor+"("+quantity+")");
++//                else
++//                        return;
++//                round();
++//                donuts.add(output);
++//                result.setItems(donuts);
++//                runningTotal.setText(total+"");
++//        }
++//
++//        @FXML
++//        protected void onRemove(){
++//                String value = (String)result.getSelectionModel().getSelectedItem();
++//                donuts.remove(value);
++//                int quantity;
++//                if(value.contains("Strawberry") || value.contains("Vanilla")
++//                        || value.contains("Blueberry") || value.contains("Apple")
++//                        || value.contains("Grape") || value.contains("Passionfruit")){
++//                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
++//                        Yeast yeast = new Yeast("Any");
++//                        total -= yeast.itemPrice() * quantity;
++//                }
++//                if(value.contains("French") || value.contains("Original")
++//                        || value.contains("Powder")){
++//                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
++//                        DonutHole hole = new DonutHole("Any");
++//                        total -= hole.itemPrice() * quantity;
++//                }
++//                if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
++//                        || value.contains("Cheese Cake")){
++//                        quantity = Integer.parseInt(value.substring(value.length()-2,value.length()-1));
++//                        Cake cake = new Cake("Any");
++//                        total -= cake.itemPrice() * quantity;
++//                }
++//                round();
++//                runningTotal.setText(total+"");
++//
++//
++//        }
++//        private void round(){
++//                DecimalFormat df = new DecimalFormat();
++//                df.setMaximumFractionDigits(2);
++//                df.setMinimumFractionDigits(2);
++//                total = Double.parseDouble(df.format(total));
++//        }
++//
++//        private MenuItem findItem(String value){
++//                if(value.contains("Strawberry") || value.contains("Vanilla")
++//                        || value.contains("Blueberry") || value.contains("Apple")
++//                        || value.contains("Grape") || value.contains("Passionfruit")){
++//                        Yeast yeast = new Yeast(value);
++//                        return yeast;
++//                }
++//                if(value.contains("French") || value.contains("Original")
++//                        || value.contains("Powder")){
++//                        DonutHole hole = new DonutHole(value);
++//                        return hole;
++//                }
++//                if(value.contains("Birthday Cake") || value.contains("Chocolate Cake")
++//                        || value.contains("Cheese Cake")){
++//                        Cake cake = new Cake(value);
++//                        return cake;
++//                }
++//                return null;
++//        }
++//        @FXML
++//        protected void addOrder(){
++//                order = new Order(uniqueOrder);
++//                uniqueOrder++;
++//                if(donuts.size() == 0)
++//                        return;
++//                for(int i = 0; i < donuts.size(); i++) {
++//                        String type = donuts.get(i);
++//                        order.addItem(type);
++//                }
++//                order.printOrder();
++//                reset();
++//
++//        }
++//
++//        private void reset(){
++//                initialize();
++//                order = new Order(uniqueOrder);
++//                donuts = FXCollections.observableArrayList();
++//                result.setItems(donuts);
++//                quantitycomboBox.setValue(1);
++//                total = 0;
++//                runningTotal.setText("");
++//
++//        }
++//        private boolean checkAdd(){
++//
++//                return true;
++//        }
+ }
+Index: src/main/resources/projectfour/CoffeeView.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.geometry.*?>\n<?import javafx.scene.control.*?>\n<?import javafx.scene.layout.*?>\n<?import javafx.scene.text.*?>\n\n<AnchorPane minHeight=\"500.0\" prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/17.0.2-ea\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"projectfour.DonutViewController\">\n   <children>\n      <TextField fx:id=\"runningTotal\" translateX=\"200.0\" translateY=\"420.0\" />\n      <ComboBox fx:id=\"comboBox\" layoutX=\"14.0\" layoutY=\"88.0\" onAction=\"#selectedValue\" prefHeight=\"28.0\" prefWidth=\"113.0\" promptText=\"Yeast Donut\" translateY=\"-200.0\" visibleRowCount=\"5\" AnchorPane.bottomAnchor=\"284.0\">\n         <opaqueInsets>\n            <Insets />\n         </opaqueInsets></ComboBox>\n      <Label text=\"Ordering Donuts\">\n         <font>\n            <Font size=\"36.0\" />\n         </font>\n         <opaqueInsets>\n            <Insets />\n         </opaqueInsets>\n         <padding>\n            <Insets left=\"175.0\" top=\"20.0\" />\n         </padding>\n      </Label>\n      <ComboBox fx:id=\"quantitycomboBox\" layoutX=\"242.0\" layoutY=\"255.0\" prefHeight=\"25.0\" prefWidth=\"58.0\" />\n      <ListView fx:id=\"flavors\" layoutX=\"27.0\" layoutY=\"192.0\" prefHeight=\"200.0\" prefWidth=\"200.0\" translateX=\"-15.0\" />\n      <Button fx:id=\"add\" mnemonicParsing=\"false\" onAction=\"#addDonut\" text=\"Add\" translateX=\"253.0\" translateY=\"300.0\" />\n      <Button fx:id=\"remove\" mnemonicParsing=\"false\" onAction=\"#onRemove\" text=\"Remove\" translateX=\"245.0\" translateY=\"350.0\" />\n      <ListView fx:id=\"result\" prefHeight=\"200.0\" prefWidth=\"200.0\" translateX=\"340.0\" translateY=\"200.0\" />\n      <Button mnemonicParsing=\"false\" onAction=\"#addOrder\" text=\"Add to Order\" translateX=\"440.0\" translateY=\"420.0\" />\n      <Label layoutX=\"160.0\" layoutY=\"420.0\" text=\"Total\">\n         <font>\n            <Font size=\"15.0\" />\n         </font>\n      </Label>\n   </children>\n</AnchorPane>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/projectfour/CoffeeView.fxml b/src/main/resources/projectfour/CoffeeView.fxml
+--- a/src/main/resources/projectfour/CoffeeView.fxml	(revision 790f1d6491524218777dd8b094095542e979d0e3)
++++ b/src/main/resources/projectfour/CoffeeView.fxml	(date 1679642376726)
+@@ -5,14 +5,14 @@
+ <?import javafx.scene.layout.*?>
+ <?import javafx.scene.text.*?>
+ 
+-<AnchorPane minHeight="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.DonutViewController">
++<AnchorPane minHeight="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectfour.CoffeeViewController">
+    <children>
+       <TextField fx:id="runningTotal" translateX="200.0" translateY="420.0" />
+-      <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="88.0" onAction="#selectedValue" prefHeight="28.0" prefWidth="113.0" promptText="Yeast Donut" translateY="-200.0" visibleRowCount="5" AnchorPane.bottomAnchor="284.0">
++      <ComboBox fx:id="comboBox" layoutX="223.0" layoutY="378.0" onAction="#" prefHeight="28.0" prefWidth="113.0" promptText="Yeast Donut" translateY="-200.0" visibleRowCount="5" AnchorPane.bottomAnchor="94.0">
+          <opaqueInsets>
+             <Insets />
+          </opaqueInsets></ComboBox>
+-      <Label text="Ordering Donuts">
++      <Label layoutX="63.0" layoutY="16.0" prefHeight="64.0" prefWidth="474.0" text="Ordering Coffee">
+          <font>
+             <Font size="36.0" />
+          </font>
+@@ -23,12 +23,12 @@
+             <Insets left="175.0" top="20.0" />
+          </padding>
+       </Label>
+-      <ComboBox fx:id="quantitycomboBox" layoutX="242.0" layoutY="255.0" prefHeight="25.0" prefWidth="58.0" />
+-      <ListView fx:id="flavors" layoutX="27.0" layoutY="192.0" prefHeight="200.0" prefWidth="200.0" translateX="-15.0" />
+-      <Button fx:id="add" mnemonicParsing="false" onAction="#addDonut" text="Add" translateX="253.0" translateY="300.0" />
+-      <Button fx:id="remove" mnemonicParsing="false" onAction="#onRemove" text="Remove" translateX="245.0" translateY="350.0" />
++      <ComboBox fx:id="quantitycomboBox" layoutX="244.0" layoutY="237.0" prefHeight="25.0" prefWidth="58.0" />
++      <ListView fx:id="flavors" layoutX="29.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" translateX="-15.0" />
++      <Button fx:id="add" mnemonicParsing="false" onAction="" text="Add" translateX="253.0" translateY="300.0" />
++      <Button fx:id="remove" mnemonicParsing="false" onAction="" text="Remove" translateX="245.0" translateY="350.0" />
+       <ListView fx:id="result" prefHeight="200.0" prefWidth="200.0" translateX="340.0" translateY="200.0" />
+-      <Button mnemonicParsing="false" onAction="#addOrder" text="Add to Order" translateX="440.0" translateY="420.0" />
++      <Button mnemonicParsing="false" onAction="" text="Add to Order" translateX="440.0" translateY="420.0" />
+       <Label layoutX="160.0" layoutY="420.0" text="Total">
+          <font>
+             <Font size="15.0" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"4ad6a2db-ba2c-4619-a4cd-323254b5b9ef\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n        <option value=\"Tag Library Descriptor\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2NKefHsZ6dp0XA2bj3QpjZwOLEG\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"app.teamhub.trackedBranches\": \"1g3us7n/master\",\n    \"last_directory_selection\": \"C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour\",\n    \"last_opened_file_path\": \"/Users/anischihoub/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/resources/projectfour\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\\src\\main\\resources\\projectfour\" />\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\\src\\main\\java\\projectfour\" />\n      <recent name=\"C:\\Users\\Owner\\IdeaProjects\\CS_213_Project_4\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Application.projectfour.MainView\">\n    <configuration name=\"projectfour.HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.HelloApplication\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"projectfour.MainView\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"projectfour.MainView\" />\n      <module name=\"CS_213_Project_4\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"projectfour.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.projectfour.MainView\" />\n        <item itemvalue=\"Application.projectfour.HelloApplication\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"4ad6a2db-ba2c-4619-a4cd-323254b5b9ef\" name=\"Changes\" comment=\"\" />\n      <created>1679417304332</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1679417304332</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <created>1679417476132</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679417476132</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"setting up files\">\n      <created>1679435534498</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679435534498</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"setting up files\">\n      <created>1679435569232</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679435569232</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"basic implementation\">\n      <created>1679453530802</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679453530802</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"setup\">\n      <created>1679503156033</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679503156033</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"MainView added\">\n      <created>1679512454850</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679512454850</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"added donut functionality (small tweaks needed)\">\n      <created>1679596797814</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679596797814</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"added donut functionality (small tweaks needed)\">\n      <created>1679598877448</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679598877448</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"added donut view, will update later.\">\n      <created>1679604613019</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679604613019</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"setting up files\" />\n    <MESSAGE value=\"basic implementation\" />\n    <MESSAGE value=\"setup\" />\n    <MESSAGE value=\"MainView added\" />\n    <MESSAGE value=\"added donut functionality (small tweaks needed)\" />\n    <MESSAGE value=\"added donut view, will update later.\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added donut view, will update later.\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 790f1d6491524218777dd8b094095542e979d0e3)
++++ b/.idea/workspace.xml	(date 1679862935716)
+@@ -6,8 +6,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="4ad6a2db-ba2c-4619-a4cd-323254b5b9ef" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/CoffeeView.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/DonutView.fxml" afterDir="false" />
+     </list>
+@@ -42,6 +41,7 @@
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
+     "app.teamhub.trackedBranches": "1g3us7n/master",
+     "last_directory_selection": "C:/Users/Owner/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour",
+     "last_opened_file_path": "/Users/anischihoub/IdeaProjects/CS_213_Project_4/src/main/resources/projectfour"
+@@ -99,6 +99,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1679417304332</updated>
++      <workItem from="1679640214143" duration="1852000" />
+     </task>
+     <task id="LOCAL-00001" summary="initial commit">
+       <created>1679417476132</created>
+@@ -163,9 +164,19 @@
+       <option name="project" value="LOCAL" />
+       <updated>1679604613019</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="switch donut and coffee names">
++      <created>1679639401676</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1679639401676</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initial commit" />
+     <MESSAGE value="setting up files" />
+@@ -174,6 +185,7 @@
+     <MESSAGE value="MainView added" />
+     <MESSAGE value="added donut functionality (small tweaks needed)" />
+     <MESSAGE value="added donut view, will update later." />
+-    <option name="LAST_COMMIT_MESSAGE" value="added donut view, will update later." />
++    <MESSAGE value="switch donut and coffee names" />
++    <option name="LAST_COMMIT_MESSAGE" value="switch donut and coffee names" />
+   </component>
+ </project>
+\ No newline at end of file

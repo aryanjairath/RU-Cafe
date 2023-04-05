@@ -54,13 +54,13 @@ public class OrderMenuController {
     public void showAllOrders(){
 
         ArrayList<Order> orderList = AllOrders.allStoreOrders();
-        if(orderList.size() == BEGININDEX){
-            String errorMessage = "No Orders to load!";
-            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
-            coffeeFailure.setContentText(errorMessage);
-            coffeeFailure.show();
-            return;
-        }
+//        if(orderList.size() == BEGININDEX){
+//            String errorMessage = "No Orders to load!";
+//            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+//            coffeeFailure.setContentText(errorMessage);
+//            coffeeFailure.show();
+//            return;
+//        }
 
         if(orderList.size() != EMPTY){
             ArrayList<String> list = orderList.get(orderList.size() - SIZEINDEX).getMenuItems();
@@ -112,6 +112,10 @@ public class OrderMenuController {
         AllOrders.removeOrderedItem(orderNumber);
         this.orderList.remove(orderNumber);
         this.resultView.setItems(this.orderList);
+        String errorMessage = "Orders removed!";
+        Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
+        coffeeFailure.setContentText(errorMessage);
+        coffeeFailure.show();
     }
 
 

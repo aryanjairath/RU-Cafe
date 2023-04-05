@@ -32,6 +32,7 @@ public class MainViewController {
      */
     @FXML
     protected void onOrderCoffee() throws IOException {
+        OrderingBasketView view2 = new OrderingBasketView();
         CoffeeView view = new CoffeeView();
         view.start(new Stage());
     }
