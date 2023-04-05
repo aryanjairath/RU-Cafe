@@ -124,8 +124,8 @@ public class OrderMenuController {
 
 
     /**
-     * Writes orders to a text file.
-     * @throws IOException, if the file is not found.
+     * Writes orders to a text file
+     * @throws IOException in case the file is not found
      */
     @FXML
     public void exportToTextFile() throws IOException {

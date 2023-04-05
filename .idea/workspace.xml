@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="add alerts for coffee.">
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="fixes to deletion methods coffee and order menu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680673560487</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixes to deletion methods coffee and order menu.">
+      <created>1680716376374</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680716376374</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,8 +344,8 @@
     <MESSAGE value="fixed rounding, made coffee flavor pre selected" />
     <MESSAGE value="orders can be updated multiple times. rounding" />
     <MESSAGE value="fixes to store orders." />
-    <MESSAGE value="fixes to deletion methods coffee and order menu." />
     <MESSAGE value="add alerts for coffee." />
-    <option name="LAST_COMMIT_MESSAGE" value="add alerts for coffee." />
+    <MESSAGE value="fixes to deletion methods coffee and order menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes to deletion methods coffee and order menu." />
   </component>
 </project>
