@@ -6,7 +6,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 
 /**
@@ -96,30 +98,21 @@ public class DonutViewController {
     protected void selectedValue() throws IOException {
         if(comboBox.getValue().equals("Yeast Donut")){
             flavors.setItems(yeastFlavors);
-            File f = new File("yeast.jpg");
-            String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
-            absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
-            System.out.println(absolute);
-            donutImage.setImage(new Image(absolute));
+            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/yeast.jpg");
+            Image img = new Image(inputStream);
+            donutImage.setImage(img);
         }
         if(comboBox.getValue().equals("Cake Donut")) {
             flavors.setItems(cakeFlavors);
-            File f = new File("cake.jpg");
-            String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETNINE);
-            absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
-            System.out.println(absolute);
-            donutImage.setImage(new Image(absolute));
+            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/cake.jpg");
+            Image img = new Image(inputStream);
+            donutImage.setImage(img);
         }
         if(comboBox.getValue().equals("Hole Donut")) {
             flavors.setItems(donutHoles);
-            File f = new File("holes.jpg");
-            String absolute = f.getCanonicalPath();
-            absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
-            absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
-            System.out.println(absolute);
-            donutImage.setImage(new Image(absolute));
+            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/holes.jpg");
+            Image img = new Image(inputStream);
+            donutImage.setImage(img);
         }
     }
 
