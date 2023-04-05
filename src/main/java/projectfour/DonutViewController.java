@@ -100,6 +100,7 @@ public class DonutViewController {
             String absolute = f.getCanonicalPath();
             absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\yeast.jpg";
+            System.out.println(absolute);
             donutImage.setImage(new Image(absolute));
         }
         if(comboBox.getValue().equals("Cake Donut")) {
@@ -108,6 +109,7 @@ public class DonutViewController {
             String absolute = f.getCanonicalPath();
             absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETNINE);
             absolute += "\\src\\main\\resources\\projectfour\\cake.jpg";
+            System.out.println(absolute);
             donutImage.setImage(new Image(absolute));
         }
         if(comboBox.getValue().equals("Hole Donut")) {
@@ -116,6 +118,7 @@ public class DonutViewController {
             String absolute = f.getCanonicalPath();
             absolute = absolute.substring(STARTINDEX, absolute.length() - OFFSETTEN);
             absolute += "\\src\\main\\resources\\projectfour\\holes.jpg";
+            System.out.println(absolute);
             donutImage.setImage(new Image(absolute));
         }
     }

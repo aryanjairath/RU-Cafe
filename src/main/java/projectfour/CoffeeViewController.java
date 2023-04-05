@@ -182,10 +182,6 @@ public class CoffeeViewController {
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
-                String errorMessage = "Order added!";
-                Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
-                coffeeFailure.setContentText(errorMessage);
-                coffeeFailure.show();
         }
 
         /**
@@ -266,6 +262,10 @@ public class CoffeeViewController {
                 order.setPrice(AllOrders.runningTotal);
                 AllOrders.addOrder(order, uniqueOrder);
                 reset();
+                String errorMessage = "Order added!";
+                Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
+                coffeeFailure.setContentText(errorMessage);
+                coffeeFailure.show();
         }
 
         /**
@@ -276,7 +276,7 @@ public class CoffeeViewController {
                 order = new Order(uniqueOrder);
                 coffee = FXCollections.observableArrayList();
                 result.setItems(coffee);
-                quantitycomboBox.setValue(INITIALSELECT);
+                quantitycomboBox.setValue(QUANTITYONE);
                 runningTotal.setText("");
                 result.setItems(coffee);
                 irishCream.setSelected(false);
