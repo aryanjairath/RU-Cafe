@@ -182,6 +182,10 @@ public class CoffeeViewController {
                 result.setItems(coffee);
                 total += coffeeOrder.itemPrice()*quantity;
                 round();
+                String errorMessage = "Order added!";
+                Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
+                coffeeFailure.setContentText(errorMessage);
+                coffeeFailure.show();
         }
 
         /**
