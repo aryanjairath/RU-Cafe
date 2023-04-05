@@ -222,13 +222,15 @@ public class CoffeeViewController {
                 String sizeOfCoffee = value.substring(BEGININDEX,value.indexOf("("));
                 int quantity = Integer.parseInt(value.substring(
                         value.indexOf("(") + OFFSETINDEX, value.indexOf(")")));
-                String addOns = value.substring(value.indexOf("[") + OFFSETINDEX,
-                        value.indexOf("]"));
-                String[] addOnFromOrder = addOns.split(",");
-                Coffee tempCoffee = new Coffee(sizeOfCoffee);
                 ArrayList<String> addons = new ArrayList<String>();
-                for(int i = 0; i < addOnFromOrder.length; i++){
-                        addons.add(addOnFromOrder[i]);
+                Coffee tempCoffee = new Coffee(sizeOfCoffee);
+                if(value.indexOf("[") != BEGININDEX - OFFSETINDEX){
+                        String addOns = value.substring(value.indexOf("[") + OFFSETINDEX,
+                                value.indexOf("]"));
+                        String[] addOnFromOrder = addOns.split(",");
+                        for(int i = 0; i < addOnFromOrder.length; i++){
+                                addons.add(addOnFromOrder[i]);
+                        }
                 }
                 tempCoffee.addaddIn(addons);
                 total -= (tempCoffee.itemPrice()) * quantity;

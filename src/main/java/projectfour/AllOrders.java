@@ -94,4 +94,18 @@ public class AllOrders {
         storeOrders.remove(index);
     }
 
+    /**
+     * Removes an item from the store orders array list
+     * @param index The string containing an index from which to remove
+     * a given order
+     */
+    public static void removeItem(String index){
+        for(int i = 0; i < storeOrders.size(); i++ ){
+            if(storeOrders.get(i).toString().equals(index)){
+                storeOrders.remove(i);
+                break;
+            }
+        }
+    }
+
 }

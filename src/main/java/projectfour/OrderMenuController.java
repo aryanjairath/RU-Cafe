@@ -109,8 +109,12 @@ public class OrderMenuController {
                 .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
                 order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;
 
-        AllOrders.removeOrderedItem(orderNumber);
-        this.orderList.remove(orderNumber);
+        AllOrders.removeItem(order);
+        for(int i = 0; i < this.orderList.size(); i++){
+            if(this.orderList.get(i).equals(order)){
+                this.orderList.remove(i);
+            }
+        }
         this.resultView.setItems(this.orderList);
         String errorMessage = "Orders removed!";
         Alert coffeeFailure = new Alert(Alert.AlertType.CONFIRMATION);
