@@ -29,7 +29,6 @@ public class OrderMenuView extends Application {
 
     /**
      * This method runs the stage for the order GUI
-     *
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
@@ -42,4 +41,5 @@ public class OrderMenuView extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
 }

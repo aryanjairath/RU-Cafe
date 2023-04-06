@@ -18,10 +18,37 @@ import java.text.DecimalFormat;
  * @author Anis Chihoub, Aryan Jariath
  */
 public class DonutViewController {
+
+    private static int ONE = 1;
+
+
+    private static int TWO = 2;
+
+    private static int THREE = 3;
+
+    private static int FOUR = 4;
+
+    private static int FIVE = 5;
+
+    private static int SIX = 6;
+
+    private static int SEVEN = 7;
+
+    private static int EIGHT = 8;
+
+    private static int NINE = 9;
+
+    private static int TEN = 10;
+
+
+
+
+
     ObservableList<String> donutList =
             FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Hole Donut");
     ObservableList<Integer> quantityList =
-            FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+            FXCollections.observableArrayList(ONE, TWO, THREE, FOUR, FIVE,
+                    SIX, SEVEN, EIGHT, NINE, TEN);
     ObservableList<String> yeastFlavors =
             FXCollections.observableArrayList("Strawberry", "Vanilla", "Blueberry",
                     "Apple", "Grape","Passionfruit");
