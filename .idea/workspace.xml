@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="add testing doc again">
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="add testing doc">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,14 +316,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680799755510</updated>
     </task>
-    <task id="LOCAL-00026" summary="add testing doc again">
-      <created>1680800570557</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1680800570557</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +355,6 @@
     <MESSAGE value="add alerts for coffee." />
     <MESSAGE value="fixes to deletion methods coffee and order menu." />
     <MESSAGE value="add testing doc" />
-    <MESSAGE value="add testing doc again" />
-    <option name="LAST_COMMIT_MESSAGE" value="add testing doc again" />
+    <option name="LAST_COMMIT_MESSAGE" value="add testing doc" />
   </component>
 </project>
