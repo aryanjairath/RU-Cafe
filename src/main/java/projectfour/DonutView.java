@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class DonutView extends Application {
 
-    private static double LENGTH = 550;
+    private static double LENGTH = 620;
 
     private static double WIDTH = 620;
     /**

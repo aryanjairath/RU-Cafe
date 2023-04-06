@@ -96,6 +96,8 @@ public class OrderMenuController {
      */
     @FXML
     private void removeItem(){
+        String order = ((String) this.resultView.getSelectionModel()
+                .getSelectedItem());
         ArrayList<Order> orderList = AllOrders.allStoreOrders();
         if(orderList.size() == BEGININDEX || this.orderList.size() == BEGININDEX){
             String errorMessage = "No orders to remove!";
@@ -104,8 +106,7 @@ public class OrderMenuController {
             coffeeFailure.show();
             return;
         }
-        String order = ((String) this.resultView.getSelectionModel()
-                .getSelectedItem());
+
         if(order == null)
             return;
         int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
