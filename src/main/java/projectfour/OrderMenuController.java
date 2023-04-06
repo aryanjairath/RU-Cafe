@@ -106,6 +106,8 @@ public class OrderMenuController {
         }
         String order = ((String) this.resultView.getSelectionModel()
                 .getSelectedItem());
+        if(order == null)
+            return;
         int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
                 .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
                 order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;

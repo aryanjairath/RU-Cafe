@@ -4,12 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="check coding standard stuff.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23,_7_59_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23__7_59_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="added javadoc">
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-16.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_23__9_59_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/AllOrders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allclasses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/module-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/module-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/AllOrders.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/AllOrders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Cake.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Cake.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Coffee.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Coffee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/CoffeeView.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/CoffeeView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/CoffeeViewController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/CoffeeViewController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Donut.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Donut.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutHole.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutHole.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutView.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutViewController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/DonutViewController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MainViewController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MainViewController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MenuItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/MenuItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Order.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderMenuController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderMenuController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderMenuView.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderMenuView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderingBasketController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderingBasketController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderingBasketView.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/OrderingBasketView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Yeast.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/Yeast.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.cs_213_project_4/projectfour/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/module-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/module-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,14 +362,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680716376374</updated>
     </task>
-    <task id="LOCAL-00025" summary="check coding standard stuff.">
-      <created>1680752886111</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1680752886111</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +400,6 @@
     <MESSAGE value="fixes to store orders." />
     <MESSAGE value="add alerts for coffee." />
     <MESSAGE value="fixes to deletion methods coffee and order menu." />
-    <MESSAGE value="check coding standard stuff." />
-    <option name="LAST_COMMIT_MESSAGE" value="check coding standard stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes to deletion methods coffee and order menu." />
   </component>
 </project>
