@@ -17,7 +17,7 @@
       <Label layoutX="312.0" layoutY="55.0" prefHeight="18.0" prefWidth="78.0" text="sub-total       $" />
       <Label layoutX="312.0" layoutY="88.0" text="sales tax        $" />
       <Label layoutX="312.0" layoutY="125.0" text="total amount $" />
-      <Button layoutX="180.0" layoutY="108.0" mnemonicParsing="false" onAction="#revealPricing" prefHeight="26.0" prefWidth="119.0" text="Reveal Pricing" />
+<!--      <Button layoutX="180.0" layoutY="108.0" mnemonicParsing="false" onAction="#revealPricing" prefHeight="26.0" prefWidth="119.0" text="Reveal Pricing" />-->
       <ListView fx:id="items" layoutX="21.0" layoutY="169.0" prefHeight="200.0" prefWidth="520.0" />
       <Button layoutX="21.0" layoutY="383.0" mnemonicParsing="false" onAction="#onRemove" prefHeight="38.0" prefWidth="263.0" text="Remove Selected Item">
          <font>

@@ -1,2 +1,1 @@
-Order number: 3 [Apple(1), Short(1) Addons: [Sweet Cream, French Vanilla, Irish Cream].] Price: 4.67
-Order number: 4 [Short(2) Addons: [Sweet Cream, French Vanilla, Mocha, Irish Cream, Caramel].] Price: 7.23
+Order number: 1 [Apple(1)] Price: 1.70

@@ -98,19 +98,22 @@ public class DonutViewController {
     protected void selectedValue() throws IOException {
         if(comboBox.getValue().equals("Yeast Donut")){
             flavors.setItems(yeastFlavors);
-            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/yeast.jpg");
+            InputStream inputStream =
+                    new FileInputStream("src/main/resources/projectfour/yeast.jpg");
             Image img = new Image(inputStream);
             donutImage.setImage(img);
         }
         if(comboBox.getValue().equals("Cake Donut")) {
             flavors.setItems(cakeFlavors);
-            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/cake.jpg");
+            InputStream inputStream =
+                    new FileInputStream("src/main/resources/projectfour/cake.jpg");
             Image img = new Image(inputStream);
             donutImage.setImage(img);
         }
         if(comboBox.getValue().equals("Hole Donut")) {
             flavors.setItems(donutHoles);
-            InputStream inputStream = new FileInputStream("src/main/resources/projectfour/holes.jpg");
+            InputStream inputStream =
+                    new FileInputStream("src/main/resources/projectfour/holes.jpg");
             Image img = new Image(inputStream);
             donutImage.setImage(img);
         }

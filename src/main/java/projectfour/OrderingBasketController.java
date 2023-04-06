@@ -39,6 +39,9 @@ public class OrderingBasketController {
     private static int START = 0;
     private static int EMPTY = 0;
 
+    private static int ZEROADDONS = 0;
+
+    private static int ONEADDON = 1;
 
     private ObservableList<String> donuts;
 
@@ -57,7 +60,8 @@ public class OrderingBasketController {
         subtotal.setText(round(list.get(list.size() - SIZEINDEX).getPrice()));
         double taxAmt = list.get(list.size() - SIZEINDEX).getPrice() * TAXRATE;
         tax.setText(round(taxAmt));
-        amountdue.setText(round(taxAmt + list.get(list.size() - SIZEINDEX).getPrice()) + "");
+        amountdue.setText(round(taxAmt + list.get(list.size() - SIZEINDEX).
+                getPrice()) + "");
         ArrayList<Order> orders = AllOrders.allOrderR();
         ArrayList<String> order = orders.get(orders.size() - SIZEINDEX).getMenuItems();
         for(int i  = 0; i < order.size(); i++)
@@ -81,6 +85,82 @@ public class OrderingBasketController {
     }
 
     /**
+     * Checks if we can remove the item from the order.
+     * @param value a string containing the order in questin.
+     * @return a boolean if the order item can be removed.
+     */
+
+    public boolean checkRemove(String value){
+        if(value == null){
+            String errorMessage = "No items selected!";
+            Alert orderFailure = new Alert(Alert.AlertType.ERROR);
+            orderFailure.setContentText(errorMessage);
+            orderFailure.show();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Checks if a coffee item has a particular value.
+     * @param value a string containing the order in question.
+     * @return a boolean if the coffee order has any of the following values.
+     */
+    public boolean checkCoffee(String value){
+        return value.contains("Short") || value.contains("Tall") ||
+                value.contains("Grande") || value.contains("Venti");
+    }
+
+    /**
+     * Checks if a donut item has a particular flavor.
+     * @param value a string containing the order in question.
+     * @return a boolean if the donut order has any of the possible flavors.
+     */
+    public boolean checkFlavor(String value){
+        return value.contains("Strawberry") || value.contains("Vanilla")
+                || value.contains("Blueberry") || value.contains("Apple")
+                || value.contains("Grape") || value.contains("Passionfruit");
+    }
+
+    /**
+     * Counts the number of addons in a coffee order.
+     * @param value a string containing the coffee order
+     * @return a integer showcasing the number of coffee add ons.
+     */
+
+    public int numberOfAddons(String value){
+        int numberOfAddons = ZEROADDONS;
+        if(!value.contains("["))
+            numberOfAddons = ZEROADDONS;
+        else{
+            numberOfAddons += ONEADDON;
+            for(int i = 0 ; i < value.length(); i++){
+                if(value.charAt(i) == ',')
+                    numberOfAddons++;
+            }
+        }
+        return numberOfAddons;
+    }
+
+
+    /**
+     * Returns a coffee object, given the selected size and the order string
+     * @param value the order string to extract information from.
+     * @param sizeOfCoffee a string containing the coffee size
+     * @return a coffee object with the given parameters.
+     */
+    private Coffee getCoffeeObject(String value, String sizeOfCoffee){
+        int numberOfAddons = numberOfAddons(value);
+        Coffee tempCoffee = new Coffee(sizeOfCoffee);
+        ArrayList<String> addons = new ArrayList<String>();
+        for(int i = 0; i < numberOfAddons; i++){
+            addons.add("");
+        }
+        tempCoffee.addaddIn(addons);
+        return tempCoffee;
+    }
+
+    /**
      * This method removes an item from the arraylist of
      * all orders and also reflects the corresponding
      * updated pricing
@@ -88,22 +168,15 @@ public class OrderingBasketController {
     @FXML
     protected void onRemove(){
         String value = (String) items.getSelectionModel().getSelectedItem();
-        if(value == null){
-            String errorMessage = "No items selected!";
-            Alert orderFailure = new Alert(Alert.AlertType.ERROR);
-            orderFailure.setContentText(errorMessage);
-            orderFailure.show();
+        if(!checkRemove(value))
             return;
-        }
         ArrayList<Order> list = AllOrders.allOrderR();
         list.get(list.size() - SIZEINDEX).getMenuItems().remove(value);
         int quantity;
-        double amt = 0;
+        double amt = ZEROTOTAL;
         int quantity1 = Integer.parseInt(value.substring(value.indexOf('(')
                 + OFFSETINDEX, value.indexOf(')')));
-        if(value.contains("Strawberry") || value.contains("Vanilla")
-                || value.contains("Blueberry") || value.contains("Apple")
-                || value.contains("Grape") || value.contains("Passionfruit")){
+        if(checkFlavor(value)){
             quantity = quantity1;
             Yeast yeast = new Yeast("Any");
             amt = Double.parseDouble(subtotal.getText()) - yeast.itemPrice() * quantity;
@@ -120,30 +193,16 @@ public class OrderingBasketController {
             Cake cake = new Cake("Any");
             amt = Double.parseDouble(subtotal.getText()) - cake.itemPrice() * quantity;
         }
-        if(value.contains("Short") || value.contains("Tall") || value.contains("Grande") || value.contains("Venti")){
+        if(checkCoffee(value)){
             String sizeOfCoffee = value.substring(START,value.indexOf("("));
-            quantity = Integer.parseInt(value.substring(value.indexOf("(") + OFFSETINDEX,
-                    value.indexOf(")")));
-            int numberOfAddons = 0;
-            if(!value.contains("["))
-                numberOfAddons = 0;
-            else{
-                numberOfAddons+=1;
-                for(int i = 0 ; i < value.length(); i++){
-                    if(value.charAt(i) == ',')
-                        numberOfAddons++;
-                }
-            }
-            Coffee tempCoffee = new Coffee(sizeOfCoffee);
-            ArrayList<String> addons = new ArrayList<String>();
-            for(int i = 0; i < numberOfAddons; i++){
-                addons.add("");
-            }
-            tempCoffee.addaddIn(addons);
-            amt = Double.parseDouble(subtotal.getText()) - tempCoffee.itemPrice() * quantity;
+            quantity = Integer.parseInt(value.substring(
+                    value.indexOf("(") + OFFSETINDEX, value.indexOf(")")));
+            Coffee tempCoffee = getCoffeeObject(value, sizeOfCoffee);
+            amt = Double.parseDouble(subtotal.getText()) -
+                    tempCoffee.itemPrice() * quantity;
         }
-
-        list.get(list.size() - SIZEINDEX).setPrice(Double.parseDouble(round(amt)));
+        list.get(list.size() - SIZEINDEX)
+                .setPrice(Double.parseDouble(round(amt)));
         revealPricing();
     }
 

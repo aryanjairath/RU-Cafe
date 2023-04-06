@@ -17,8 +17,20 @@ import java.util.ArrayList;
 public class CoffeeViewController {
         ObservableList<String> donutList =
                 FXCollections.observableArrayList("Short", "Tall", "Grande", "Venti");
+
+        private static int ONE = 1;
+
+
+        private static int TWO = 2;
+
+        private static int THREE = 3;
+
+        private static int FOUR = 4;
+
+        private static int FIVE = 5;
+
         ObservableList<Integer> quantityList =
-                FXCollections.observableArrayList(1, 2, 3, 4, 5);
+                FXCollections.observableArrayList(ONE, TWO, THREE, FOUR, FIVE);
 
 
         ObservableList<String> addOnList =
@@ -108,8 +120,6 @@ public class CoffeeViewController {
 
                 quantitycomboBox.setValue(QUANTITYONE);
                 quantitycomboBox.setItems(quantityList);
-
-                //flavors.setItems(yeastFlavors);
         }
 
         /**

@@ -22,6 +22,11 @@ import java.io.IOException;
  */
 public class OrderMenuView extends Application {
 
+    private static double LENGTH = 600;
+
+    private static double WIDTH = 500;
+
+
     /**
      * This method runs the stage for the order GUI
      * @param stage a Stage object that has the necessary GUI components
@@ -31,7 +36,7 @@ public class OrderMenuView extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 CoffeeView.class.getResource("StoreOrderView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600,  500);
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
         stage.setTitle("All Orders");
         stage.setScene(scene);
         stage.show();

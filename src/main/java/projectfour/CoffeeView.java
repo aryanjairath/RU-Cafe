@@ -14,6 +14,9 @@ import java.io.IOException;
  */
 public class CoffeeView extends Application {
 
+    private static double LENGTH = 550;
+
+    private static double WIDTH = 500;
     /**
      * This method runs the stage for the GUI
      * @param stage a Stage object that has the necessary GUI components
@@ -23,7 +26,7 @@ public class CoffeeView extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                getClass().getResource("CoffeeView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 550,  600);
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
         stage.setTitle("Coffee View");
         stage.setScene(scene);
         stage.show();

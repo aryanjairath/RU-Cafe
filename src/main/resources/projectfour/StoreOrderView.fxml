@@ -18,7 +18,7 @@
                 <Insets left="175.0" top="20.0" />
             </padding>
         </Label>
-        <Button fx:id="showorder" mnemonicParsing="false" onAction="#showAllOrders" text="Show All Orders" translateX="50.0" translateY="420.0" />
+<!--        <Button fx:id="showorder" mnemonicParsing="false" onAction="#showAllOrders" text="Show All Orders" translateX="50.0" translateY="420.0" />-->
         <Button fx:id="remove" mnemonicParsing="false" onAction="#removeItem" text="Remove" translateX="50.0" translateY="450.0" />
         <ListView fx:id="resultView" onEditStart="#showAllOrders" prefHeight="300.0" prefWidth="500.0" translateX="50.0" translateY="100.0" />
         <Button mnemonicParsing="false" onAction="#exportToTextFile" text="Save to Text File" translateX="440.0" translateY="420.0" />

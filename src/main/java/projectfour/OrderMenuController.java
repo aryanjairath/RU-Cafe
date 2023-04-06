@@ -73,6 +73,7 @@ public class OrderMenuController {
             ArrayList<String> list = new ArrayList<String>();
         }
         this.resultView.setItems(this.orderList);
+
     }
 
 

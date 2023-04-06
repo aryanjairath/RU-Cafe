@@ -37,11 +37,14 @@ public class OrderingBasketView extends Application {
 
     private static int ENDINDEX = 1;
 
+    private static double LENGTH = 600;
+
+    private static double WIDTH = 500;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 CoffeeView.class.getResource("OrderingBasketView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600,  500);
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
         stage.setTitle("Ordering Basket");
         stage.setScene(scene);
         stage.show();

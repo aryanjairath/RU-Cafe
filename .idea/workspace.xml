@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="fixes to deletion methods coffee and order menu.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/OrderingBasketView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/OrderingBasketView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectfour/StoreOrderView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
