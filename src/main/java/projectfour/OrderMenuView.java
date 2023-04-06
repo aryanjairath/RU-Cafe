@@ -29,6 +29,7 @@ public class OrderMenuView extends Application {
 
     /**
      * This method runs the stage for the order GUI
+     *
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
@@ -36,17 +37,9 @@ public class OrderMenuView extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 CoffeeView.class.getResource("StoreOrderView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH, WIDTH);
         stage.setTitle("All Orders");
         stage.setScene(scene);
         stage.show();
-    }
-
-    /**
-     * This method runs launch to start the order GUI.
-     * @param args an array of String.
-     */
-    public static void main(String[] args) {
-        launch();
     }
 }

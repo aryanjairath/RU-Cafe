@@ -22,6 +22,7 @@ public class OrderingBasketView extends Application {
 
     /**
      * This method runs the stage for the GUI
+     *
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
@@ -40,23 +41,15 @@ public class OrderingBasketView extends Application {
     private static double LENGTH = 600;
 
     private static double WIDTH = 500;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 CoffeeView.class.getResource("OrderingBasketView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH, WIDTH);
         stage.setTitle("Ordering Basket");
         stage.setScene(scene);
         stage.show();
 
-    }
-
-
-    /**
-     * This method runs launch to start the GUI.
-     * @param args an array of String.
-     */
-    public static void main(String[] args) {
-        launch();
     }
 }

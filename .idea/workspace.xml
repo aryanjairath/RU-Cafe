@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="add testing doc">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="87c095c3-db3b-4a69-8149-792cabb811f1" name="Changes" comment="javadoc">
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/CoffeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/DonutView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderMenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projectfour/OrderingBasketView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680799755510</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="javadoc">
+      <created>1680808083000</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1680808083000</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +364,7 @@
     <MESSAGE value="add alerts for coffee." />
     <MESSAGE value="fixes to deletion methods coffee and order menu." />
     <MESSAGE value="add testing doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="add testing doc" />
+    <MESSAGE value="javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc" />
   </component>
 </project>

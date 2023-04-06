@@ -17,16 +17,18 @@ public class CoffeeView extends Application {
     private static double LENGTH = 550;
 
     private static double WIDTH = 500;
+
     /**
      * This method runs the stage for the GUI
+     *
      * @param stage a Stage object that has the necessary GUI components
      * @throws IOException an IO exception indicating something is missing.
      */
     //@Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-               getClass().getResource("CoffeeView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), LENGTH,  WIDTH);
+                getClass().getResource("CoffeeView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), LENGTH, WIDTH);
         stage.setTitle("Coffee View");
         stage.setScene(scene);
         stage.show();
@@ -35,13 +37,5 @@ public class CoffeeView extends Application {
                 CoffeeView.class.getResource("OrderingBasketView.fxml"));
         CoffeeViewController coffeeView = fxmlLoader.getController();
         OrderingBasketController controller = basketController.getController();
-    }
-
-    /**
-     * This method runs launch to start the GUI.
-     * @param args an array of String.
-     */
-    public static void main(String[] args) {
-        launch();
     }
 }
