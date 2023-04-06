@@ -15,6 +15,7 @@ public class AllOrders {
     public static int uniqueNumber = 1;
     public static double runningTotal = 0;
 
+    public static final int INDEX = 0;
 
     /**
      * Adds an order to either a specified order in the list or
@@ -45,7 +46,7 @@ public class AllOrders {
      * @param index The place at which the order is inserted
      */
     public static void addStoreOrder(int index){
-        Order orderToAdd = allOrder.get(0);
+        Order orderToAdd = allOrder.get(INDEX);
         orderToAdd.setOrderNumber(AllOrders.getUniqueNumber());
         storeOrders.add(orderToAdd);
     }
