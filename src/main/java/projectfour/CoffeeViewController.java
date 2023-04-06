@@ -261,9 +261,13 @@ public class CoffeeViewController {
                         coffeeFailure.show();
                         return;
                 }
-
-                if(coffee.size() == BEGININDEX)
+                if(coffee.size() == BEGININDEX) {
+                        String errorMessage = "No Coffee to add!";
+                        Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+                        coffeeFailure.setContentText(errorMessage);
+                        coffeeFailure.show();
                         return;
+                }
                 for(int i = 0; i < coffee.size(); i++) {
                         String type = coffee.get(i);
                         order.addItem(type);

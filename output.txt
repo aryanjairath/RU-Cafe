@@ -1,1 +1,1 @@
-Order number: 1 [Apple(1)] Price: 1.70
+Order number: 1 [Passionfruit(1)] Price: 1.70

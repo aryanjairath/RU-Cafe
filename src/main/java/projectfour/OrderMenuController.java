@@ -107,8 +107,14 @@ public class OrderMenuController {
             return;
         }
 
-        if(order == null)
+        if(order == null){
+            String errorMessage = "No orders to remove!";
+            Alert coffeeFailure = new Alert(Alert.AlertType.ERROR);
+            coffeeFailure.setContentText(errorMessage);
+            coffeeFailure.show();
             return;
+        }
+
         int orderNumber = Integer.parseInt(((String) this.resultView.getSelectionModel()
                 .getSelectedItem()).substring(order.indexOf(":") + ENDINDEX + ENDINDEX,
                 order.indexOf(":") + ENDINDEX + ENDINDEX + ENDINDEX)) - ENDINDEX;
